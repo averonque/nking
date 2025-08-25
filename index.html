@@ -879,9 +879,79 @@
 
 
 					</div>
+
+
+
+				
+
 					<!--end::Wrapper-->
 				</div>
 								
+
+
+	<div  data-kt-stepper-element="content">
+	<div class="w-100" id="schedule_a_assets">
+						<!--begin::Heading-->
+						<div class="pb-10 pb-lg-15">
+							<!--begin::Title-->
+							<h2 class="fw-bold text-gray-900">Schedule A Assets
+</h2>
+							<!--end::Title-->
+							<!--begin::Notice-->
+							<div class="text-muted fw-semibold fs-6">
+</div>
+							<!--end::Notice-->
+						</div>
+						<!--end::Heading-->
+							<div class="mb-10 fv-row">
+
+				<a class="nav-link text-active-primary active" data-kt-countup-tabs="true" data-bs-toggle="tab" href="#" id="add_schedule_a_assets" data-kt-initialized="1" aria-selected="true" role="tab"><span class="symbol symbol-50px me-6" >
+								<span class="symbol-label">
+								
+								<i class="ki-duotone ki-plus fs-3"></i>
+					
+								</span>
+							</span>
+			Add Schedule A Asset</a>
+								</div>
+
+
+
+					</div>
+					</div>
+
+
+
+	<div  data-kt-stepper-element="content">
+	<div class="w-100" id="execution_and_signers">
+						<!--begin::Heading-->
+						<div class="pb-10 pb-lg-15">
+							<!--begin::Title-->
+							<h2 class="fw-bold text-gray-900">Execution & Signers
+</h2>
+							<!--end::Title-->
+							<!--begin::Notice-->
+							<div class="text-muted fw-semibold fs-6">
+</div>
+							<!--end::Notice-->
+						</div>
+						<!--end::Heading-->
+							<div class="mb-10 fv-row">
+
+				<a class="nav-link text-active-primary active" data-kt-countup-tabs="true" data-bs-toggle="tab" href="#" id="add_signer" data-kt-initialized="1" aria-selected="true" role="tab"><span class="symbol symbol-50px me-6" >
+								<span class="symbol-label">
+								
+								<i class="ki-duotone ki-plus fs-3"></i>
+					
+								</span>
+							</span>
+			Add Signer</a>
+								</div>
+
+
+
+					</div>
+					</div>
 
 
 
@@ -5912,12 +5982,19 @@
 			var assets_count = 0;
 			var assets_items = ["Token","Wallet Address","Estimated value"];
 			
-
-
+			var other_assets_count = 0;
+			var other_assets_items = ["Description","Account Number","Estimated value"];
+			
+			var schedule_a_assets_count = 0;
+			var schedule_a_assets_items = ["Asset Description","Identifier","Estimated value"];
+			
 			var beneficiary_count = 0;
 			
 			var beneficiary_items = [{text:"Beneficiary name",kind:"text"},{text:"Relationship",kind:"text"},{text:"Percent",kind:"number"}];
+
 			
+			var signers_count = 0;
+			var signers_items = ["Signer name","Role"];
 			
 			
 			$("#add_grantor").click(function(){
@@ -5990,6 +6067,78 @@
 
 
 				
+			$("#add_other_assets").click(function(){
+
+					var htm = '<div class="separator separator-dashed mx-5 my-5"></div>';
+
+					for(const itm of other_assets_items){
+						
+						var lbl = itm.toLowerCase().replace(/\s+/g, "_");
+						var app = "";
+
+						app = '<input type="text" class="form-control form-control-lg form-control-solid"  id="other_assets_'+lbl+'_'+assets_count+'" placeholder="" value="" />';
+
+						htm+='<div class="mb-10 fv-row"><!--begin::Label--><label class="form-label mb-3">'+itm+'</label><!--end::Label-->'+app+'</div>';
+
+					}
+					
+				other_assets_count += 1;
+				$("#other_assets").append(htm);
+
+			});
+
+
+	
+			$("#add_signer").click(function(){
+
+					var htm = '<div class="separator separator-dashed mx-5 my-5"></div>';
+
+					for(const itm of signers_items){
+						
+						var lbl = itm.toLowerCase().replace(/\s+/g, "_");
+						var app = "";
+
+						app = '<input type="text" class="form-control form-control-lg form-control-solid"  id="signers_'+lbl+'_'+signers_count+'" placeholder="" value="" />';
+
+						htm+='<div class="mb-10 fv-row"><!--begin::Label--><label class="form-label mb-3">'+itm+'</label><!--end::Label-->'+app+'</div>';
+
+					}
+					
+				signers_count += 1;
+				$("#execution_and_signers").append(htm);
+
+			});
+
+					
+			$("#add_schedule_a_assets").click(function(){
+
+					var htm = '<div class="separator separator-dashed mx-5 my-5"></div>';
+
+					for(const itm of schedule_a_assets_items){
+						
+						var lbl = itm.toLowerCase().replace(/\s+/g, "_");
+						var app = "";
+
+						app = '<input type="text" class="form-control form-control-lg form-control-solid"  id="schedule_a_assets_'+lbl+'_'+assets_count+'" placeholder="" value="" />';
+
+						htm+='<div class="mb-10 fv-row"><!--begin::Label--><label class="form-label mb-3">'+itm+'</label><!--end::Label-->'+app+'</div>';
+
+					}
+					
+				schedule_a_assets_count += 1;
+				$("#schedule_a_assets").append(htm);
+
+			});
+
+
+
+
+
+
+
+
+
+
 			
 			$("#add_trustee").click(function(){
 
@@ -6026,6 +6175,8 @@
 				let assets = [];
 				let other_assets = [];
 				let schedule_a_assets = [];
+				let signers = [];
+
 
 				for(var i=0; i<assets_count; i++){
 					var dic = {};
@@ -6039,7 +6190,26 @@
 
 				}
 
+				for(var i=0; i<other_assets_count; i++){
+					var dic = {};
+					for(const itm of other_assets_items){
+						var lbl = itm.toLowerCase().replace(/\s+/g, "_");
+						dic[lbl] = $("#other_assets_"+lbl+"_"+i).val();
+					}
+					other_assets.push(dic);
+				}
+			
 
+				for(var i=0; i<schedule_a_assets_count; i++){
+					var dic = {};
+					for(const itm of schedule_a_assets_items){
+						var lbl = itm.toLowerCase().replace(/\s+/g, "_");
+						dic[lbl] = $("#schedule_a_assets_"+lbl+"_"+i).val();
+					}
+					schedule_a_assets.push(dic);
+				}
+			
+			
 				for(var i=0; i<grantor_count; i++){
 					var dic = {};
 					for(const itm of items){
@@ -6067,25 +6237,39 @@
 
 
 
-			for(var i=0; i<beneficiary_count; i++){
+				for(var i=0; i<beneficiary_count; i++){
 
-					var dic = {};
-					for(const itm of beneficiary_items){
-						var lbl = itm.text.toLowerCase().replace(/\s+/g, "_");
-						dic[lbl] = $("#beneficiary_"+lbl+"_"+i).val();
+						var dic = {};
 
-					}
+						for(const itm of beneficiary_items){
+							var lbl = itm.text.toLowerCase().replace(/\s+/g, "_");
+							dic[lbl] = $("#beneficiary_"+lbl+"_"+i).val();
 
-				beneficiaries.push(dic);
+						}
+
+					beneficiaries.push(dic);
 
 				}
+
+				for(var i=0; i<signers_count; i++){
+
+						var dic = {};
+						for(const itm of signers_items){
+							var lbl = itm.toLowerCase().replace(/\s+/g, "_");
+							dic[lbl] = $("#signers_"+lbl+"_"+i).val();
+
+						}
+
+					signers.push(dic);
+
+					}
 
 
 
       const res = await fetch(`${API_URL}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({trustName, trustSigningDate, state,  grantors, trustees, beneficiaries, assets })
+        body: JSON.stringify({trustName, trustSigningDate, state,  grantors, trustees, beneficiaries, assets, other_assets, schedule_a_assets, signers })
       });
 
       const data = await res.json();
