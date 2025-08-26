@@ -549,7 +549,7 @@
 											<!--begin::Stepper CHECK 1-->
 											<div class="col-8">
 												<div class="progress">
-												<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" id="theProgress" aria-valuemax="100">25%</div>
+												<div class="progress-bar" role="progressbar" style="width: 1%;" aria-valuenow="25" aria-valuemin="0" id="theProgress" aria-valuemax="100">0%</div>
 												</div>
 											<div class="stepper stepper-links d-flex flex-column pt-15" id="kt_create_account_stepper">
 												
@@ -6499,9 +6499,7 @@ async function generatePdfFromString(htmlString) {
 		})
 
 		setInterval(function(){
-		cnt += 10;$("#theProgress").css("width",cnt+"%");
-
-		$("#theProgress").attr("aria-valuenow",cnt)
+	
 		$("#list").css("height","140px");
 
 		},300);
