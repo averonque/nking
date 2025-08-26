@@ -6106,7 +6106,7 @@ async function generatePdfFromString(htmlString) {
       canvas = document.getElementById("pdf-render"),
       ctx = canvas.getContext("2d");
 
-	   const pdfArrayBuffer = doc.output("arraybuffer");
+	   const pdfArrayBuffer = pdf.output("arraybuffer");
 
     // Load with PDF.js
     const loadingTask = pdfjsLib.getDocument({ data: pdfArrayBuffer });
