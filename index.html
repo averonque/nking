@@ -6123,6 +6123,7 @@ async function generatePdfFromString(htmlString) {
 	
     renderPage(1);
 
+	$("#spinnershow").css("display","none");
 	pdf.save(`document-${Date.now()}.pdf`);
 }
 
@@ -6482,9 +6483,9 @@ async function generatePdfFromString(htmlString) {
 					*/
 
 	  
-		$("#spinnershow").css("display","none");
-		const img = document.getElementById("the_preview");
-		img.src = img.src.split("?")[0] + "?t=" + new Date().getTime();
+		
+		//const img = document.getElementById("the_preview");
+		//img.src = img.src.split("?")[0] + "?t=" + new Date().getTime();
 	}
 	
 		var cnt = 0;
