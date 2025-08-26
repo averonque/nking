@@ -808,14 +808,68 @@
 							</span>
 			Add Beneficiary</a>
 								</div>
-					
-			
+					</div>
+					<!--end::Wrapper-->
+				</div>
+								
 
+
+
+<div  data-kt-stepper-element="content">
+					<!--begin::Wrapper-->
+					<div class="w-200" id="distribution_mode">
+						<!--begin::Heading-->
+						<div class="pb-10 pb-lg-15">
+							<!--begin::Title-->
+							<h2 class="fw-bold text-gray-900">Distribution Mode
+</h2>
+							<!--end::Title-->
+							<!--begin::Notice-->
+							<div class="text-muted fw-semibold fs-6">
+</div>
+							<!--end::Notice-->
+						</div>
+						<!--end::Heading-->
+							<div class="mb-10 fv-row">
+
+<span class=" form-check form-check-custom form-check-solid">
+	 <label class="form-check d-flex align-items-center form-check-custom form-check-solid">
+    <input class="form-check-input me-2" type="radio" name="account_plan" value="Outright">
+   Outright
+  </label>
+												</span>
+
+
+								</div>
+
+<div class="mb-10 fv-row">
+
+<span class=" form-check form-check-custom form-check-solid">
+					 <label class="form-check d-flex align-items-center form-check-custom form-check-solid">
+    <input class="form-check-input me-2" type="radio" name="account_plan" value="Continuing Trust">
+   Continuing Trust
+  </label>
+</span>	
+
+								</div><div class="mb-10 fv-row">
+
+<span class="form-check form-check-custom form-check-solid">
+																		 <label class="form-check d-flex align-items-center form-check-custom form-check-solid">
+    <input class="form-check-input me-2" type="radio" name="account_plan" value="Staggered">
+Staggered
+  </label>
+
+												</span>	
+
+								</div>
 
 					</div>
 					<!--end::Wrapper-->
 				</div>
 								
+
+
+
 
 
 			<div  data-kt-stepper-element="content">
@@ -5968,9 +6022,77 @@
 		<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
 		<script src="assets/js/custom/utilities/modals/create-app.js"></script>
 		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
-		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.7/purify.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 			
 		<script>
+
+async function generateTrustDocument(jsonData) {
+
+
+try{
+	    const res = await fetch("/api/chatgpt", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ jsonData }),
+      });
+
+      const data = await res.json();
+  alert(data);
+  return data;
+
+  } catch (err) {
+    console.error("Error generating document:", err);
+  }
+}
+
+
+
+
+
+			
+// Example: your HTML string
+var htmlString = `
+  <h1>EduVerse Health Landing Page</h1>
+  <p>This is a demo PDF created from a string of HTML.</p>
+  <ul>
+    <li>AI Symptom Checker - Free</li>
+    <li>AI + Human Consult - $55</li>
+    <li>Human Consult - $75</li>
+  </ul>
+`;
+
+
+async function generatePdfFromString(htmlString) {
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF({ unit: "pt", format: "letter" });
+
+  // Parse HTML string into elements
+  const container = document.createElement("div");
+  container.innerHTML = htmlString;
+  const pages = container.querySelectorAll(".page");
+
+  for (let i = 0; i < pages.length; i++) {
+    // Render current page
+    await pdf.html(pages[i], {
+      x: 40,
+      y: 40,
+      width: pdf.internal.pageSize.getWidth() - 80,
+      windowWidth: 800,
+      autoPaging: false
+    });
+
+    // Add a blank page after each render, except the last one
+    if (i < pages.length - 1) {
+      pdf.addPage();
+    }
+  }
+
+  pdf.save("document.pdf");
+}
 
 			var grantor_count = 0;
 			var items = ["Full legal name","Address","Phone","Email"];
@@ -6132,14 +6254,7 @@
 
 
 
-
-
-
-
-
-
-
-			
+	
 			$("#add_trustee").click(function(){
 
 					var htm = '<div class="separator separator-dashed mx-5 my-5"></div>';
@@ -6176,6 +6291,7 @@
 				let other_assets = [];
 				let schedule_a_assets = [];
 				let signers = [];
+				var distribution_mode = $("input[name='account_plan']:checked").val();
 
 
 				for(var i=0; i<assets_count; i++){
@@ -6265,11 +6381,17 @@
 					}
 
 
+			htmlString = await generateTrustDocument({trustName, trustSigningDate, state,  grantors, trustees, beneficiaries, assets, other_assets, schedule_a_assets, signers, distribution_mode });
+	
+			generatePdfFromString(htmlString);
+
+
+
 
       const res = await fetch(`${API_URL}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({trustName, trustSigningDate, state,  grantors, trustees, beneficiaries, assets, other_assets, schedule_a_assets, signers })
+        body: JSON.stringify({trustName, trustSigningDate, state,  grantors, trustees, beneficiaries, assets, other_assets, schedule_a_assets, signers, distribution_mode })
       });
 
       const data = await res.json();
