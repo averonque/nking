@@ -6032,8 +6032,19 @@ Staggered
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
 
-			
-		<script>
+
+	<script>
+
+
+	let pdfDoc = null,
+	pageNum = 1,
+	pageRendering = false,
+	pageNumPending = null,
+	scale = 1.2,
+	canvas = document.getElementById("pdf-render"),
+	ctx = canvas.getContext("2d");
+
+
 
 async function generateTrustDocument(jsonData) {
 
@@ -6098,14 +6109,7 @@ async function generatePdfFromString(htmlString) {
   }
 
 
-   let pdfDoc = null,
-      pageNum = 1,
-      pageRendering = false,
-      pageNumPending = null,
-      scale = 1.2,
-      canvas = document.getElementById("pdf-render"),
-      ctx = canvas.getContext("2d");
-
+ 
 	   const pdfArrayBuffer = pdf.output("arraybuffer");
 
     // Load with PDF.js
