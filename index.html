@@ -6091,7 +6091,7 @@ async function generatePdfFromString(htmlString) {
     }
   }
 
-  pdf.save("document.pdf");
+pdf.save(`document-${Date.now()}.pdf`);
 }
 
 			var grantor_count = 0;
