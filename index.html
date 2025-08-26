@@ -2213,8 +2213,11 @@ Staggered
 													</div>
 										<!--begin::Card body-->
 										<div class="card-body">
-											<img src="http://127.0.0.1:8000/static/page1.png" id="the_preview" style="width:100%; height:auto;"
-											/>
+											<!--<img src="http://127.0.0.1:8000/static/page1.png" id="the_preview" style="width:100%; height:auto;"
+											/>-->
+											<canvas id="pdf-render"></canvas>
+
+
 											<div id="spinnershow" style="display:none;position:absolute;z-index:0;top:10%;left:50%;">
 												<div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
   <span class="sr-only">Loading...</span>
@@ -2226,7 +2229,7 @@ Staggered
 					<div class="d-flex flex-stack pt-10">
 										<!--begin::Wrapper-->
 										<div class="me-2">
-											<button type="button" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous">
+											<button id="previous_page" type="button" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous">
 											<i class="ki-duotone ki-arrow-left fs-3 me-1">
 												<span class="path1"></span>
 												<span class="path2"></span>
@@ -2236,18 +2239,18 @@ Staggered
 										<!--begin::Wrapper-->
 											<div class="d-flex justify-content-center ">
 				
-						<span class="text-primary fw-bolder fs-5">Page 1 of 8</span>
-					</div>
+						<span class="text-primary fw-bolder fs-5" id="current_page">Page 1</span>
+				</div>
 
 
-										<div>
-											
-											<button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Next 
-											<i class="ki-duotone ki-arrow-right fs-3 ms-1 me-0">
-												<span class="path1"></span>
-												<span class="path2"></span>
-											</i></button>
-										</div>
+					<div>
+
+<button id="next_page" type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Next 
+<i class="ki-duotone ki-arrow-right fs-3 ms-1 me-0">
+<span class="path1"></span>
+<span class="path2"></span>
+</i></button>
+</div>
 										<!--end::Wrapper-->
 									</div>
 					<!--end::Action-->
@@ -6026,6 +6029,8 @@ Staggered
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
 
 			
 		<script>
@@ -6059,6 +6064,7 @@ var htmlString = `
   <h1>EduVerse Health Landing Page</h1>
   <p>This is a demo PDF created from a string of HTML.</p>
   <ul>
+
     <li>AI Symptom Checker - Free</li>
     <li>AI + Human Consult - $55</li>
     <li>Human Consult - $75</li>
@@ -6091,8 +6097,87 @@ async function generatePdfFromString(htmlString) {
     }
   }
 
-pdf.save(`document-${Date.now()}.pdf`);
+
+   let pdfDoc = null,
+      pageNum = 1,
+      pageRendering = false,
+      pageNumPending = null,
+      scale = 1.2,
+      canvas = document.getElementById("pdf-render"),
+      ctx = canvas.getContext("2d");
+
+	   const pdfArrayBuffer = doc.output("arraybuffer");
+
+    // Load with PDF.js
+    const loadingTask = pdfjsLib.getDocument({ data: pdfArrayBuffer });
+    pdfDoc = await loadingTask.promise;
+  	//  document.getElementById("page_count").textContent = pdfDoc.numPages;
+
+  	$("#previous_button").click(function(){
+		prevPage();
+	});
+
+	$("#next_button").click(function(){
+		nextPage();
+	});
+	
+    renderPage(1);
+
+	pdf.save(`document-${Date.now()}.pdf`);
 }
+
+
+
+
+ function renderPage(num) {
+    pageRendering = true;
+    pdfDoc.getPage(num).then(function(page) {
+      let viewport = page.getViewport({ scale: scale });
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+
+      let renderContext = {
+        canvasContext: ctx,
+        viewport: viewport
+      };
+
+      let renderTask = page.render(renderContext);
+
+      renderTask.promise.then(function () {
+        pageRendering = false;
+        document.getElementById("current_page").textContent = "Page "+num;
+
+        if (pageNumPending !== null) {
+          renderPage(pageNumPending);
+          pageNumPending = null;
+        }
+      });
+    });
+  }
+
+  function queueRenderPage(num) {
+    if (pageRendering) {
+      pageNumPending = num;
+    } else {
+      renderPage(num);
+    }
+  }
+
+  function prevPage() {
+    if (pageNum <= 1) return;
+    pageNum--;
+    queueRenderPage(pageNum);
+  }
+
+  function nextPage() {
+    if (pageNum >= pdfDoc.numPages) return;
+    pageNum++;
+    queueRenderPage(pageNum);
+  }
+
+
+
+
 
 			var grantor_count = 0;
 			var items = ["Full legal name","Address","Phone","Email"];
