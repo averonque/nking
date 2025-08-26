@@ -217,10 +217,6 @@ ${JSON.stringify(req.body, null, 2)}
 
     });
 
-    const data = await response.json();
-    const result = data.choices?.[0]?.message?.content || "No content generated.";
-
-	
 
     res.status(200).json({ text: response.choices[0].message.content });
   } catch (error) {
