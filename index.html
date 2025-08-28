@@ -6354,9 +6354,10 @@ $('#kt_drawer_chat').animate({
 		  $("#send_message").click(async function(){
 let divs = $('#kt_create_account_form').find('div');
 let the_data = divs.eq(1).html();
+let user_msg = $("#user_message").val();
+let to_pass = {"html":the_data,"question":user_msg}
 
-let to_pass = {"html":the_data,"question":$("#user_message").val()}
-let user_htm = $("#from_user").html().replace("{the_user_message}",$("#user_message").val());
+let user_htm = $("#from_user").html().replace("{the_user_message}",user_msg);
 
 $("#list").append(user_htm);
 $("#user_message").val("");
@@ -6372,7 +6373,7 @@ try{
       const data = await res.json();
 	  let values = data.text;
 	  let ans = values.replace("Answer:","");
-	  let htm = $("#from_ai").html().replace("{ai_answer}",ans);
+	  let htm = $("#from_ai").html().replace("{ai_message}",ans);
 	  $("#list").append(htm);
 
 
