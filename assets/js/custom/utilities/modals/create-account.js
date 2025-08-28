@@ -1,5 +1,6 @@
 "use strict";
 
+let the_step = 1;
 // Class definition
 var KTCreateAccount = function () {
 	// Elements
@@ -52,6 +53,7 @@ var KTCreateAccount = function () {
 			console.log('stepper.next');
 
 			var indx = stepperObj.getCurrentStepIndex();
+			the_step = indx;
 			
 			if (stepDic[indx].hasOwnProperty("kw")) {
 

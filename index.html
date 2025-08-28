@@ -6336,13 +6336,11 @@ async function generatePdfFromString(htmlString) {
 
 
 		$('#kt_drawer_chat_messenger_body').animate({
-  scrollTop: $('#kt_drawer_chat_messenger_body')[0].scrollHeight
-}, 500); // 500ms animation
-$('#kt_drawer_chat').animate({
-  scrollTop: $('#kt_drawer_chat')[0].scrollHeight
-}, 500); // 500ms animation
-
-
+		scrollTop: $('#kt_drawer_chat_messenger_body')[0].scrollHeight
+		}, 500); // 500ms animation
+		$('#kt_drawer_chat').animate({
+		scrollTop: $('#kt_drawer_chat')[0].scrollHeight
+		}, 500); // 500ms animation
 
 		setInterval(function(){
 		//$('#kt_drawer_chat').css("height","200px");
@@ -6353,7 +6351,7 @@ $('#kt_drawer_chat').animate({
 
 		  $("#send_message").click(async function(){
 let divs = $('#kt_create_account_form').find('div');
-let the_data = divs.eq(1).html();
+let the_data = divs.eq(the_step).html();
 let user_msg = $("#user_message").val();
 let to_pass = {"html":the_data,"question":user_msg}
 
