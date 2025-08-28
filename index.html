@@ -6350,7 +6350,7 @@ async function generatePdfFromString(htmlString) {
 
 
 		  $("#send_message").click(async function(){
-			let divs = $('#kt_create_account_form').find('div');
+			let divs = $('#kt_create_account_form').find('div[data-kt-stepper-element="content"]');
 			console.log(divs.length);
 			let the_data = divs.eq(the_step-1).html();
 			let user_msg = $("#user_message").val();
