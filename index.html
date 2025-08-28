@@ -5796,7 +5796,7 @@ Staggered
 									<!--begin::Details-->
 									<div class="ms-3">
 										<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary me-1">Assistant</a>
-										<span class="text-muted fs-7 mb-1">2 mins</span>
+										<span class="text-muted fs-7 mb-1"></span>
 									</div>
 									<!--end::Details-->
 								</div>
@@ -5820,7 +5820,7 @@ Staggered
 <div class="d-flex align-items-center mb-2">
 <!--begin::Details-->
 <div class="me-3">
-	<span class="text-muted fs-7 mb-1">5 mins</span>
+	<span class="text-muted fs-7 mb-1"></span>
 	<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary ms-1">You</a>
 </div>
 <!--end::Details-->
@@ -5832,7 +5832,7 @@ Staggered
 </div>
 <!--end::User-->
 <!--begin::Text-->
-<div class="p-5 rounded bg-light-primary text-gray-900 fw-semibold mw-lg-400px text-end" data-kt-element="message-text">Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on GitHub.</div>
+<div class="p-5 rounded bg-light-primary text-gray-900 fw-semibold mw-lg-400px text-end" data-kt-element="message-text">{the_user_message}</div>
 <!--end::Text-->
 </div>
 <!--end::Wrapper-->
@@ -6354,7 +6354,14 @@ $('#kt_drawer_chat').animate({
 		  $("#send_message").click(async function(){
 let divs = $('#kt_create_account_form').find('div');
 let the_data = divs.eq(1).html();
+
 let to_pass = {"html":the_data,"question":$("#user_message").val()}
+let user_htm = $("#from_user").html().replace("{the_user_message}",$("#user_message").val());
+
+$("#list").append(user_htm);
+$("#user_message").val("");
+
+
 try{
 	    const res = await fetch("/api/assistant", {
         method: "POST",
@@ -6363,8 +6370,8 @@ try{
       });
 
       const data = await res.json();
-	  let values = data.text.split('\n');
-	  let ans = values[values.length-1].replace("Answer:","");
+	  let values = data.text;
+	  let ans = values.replace("Answer:","");
 	  let htm = $("#from_ai").html().replace("{ai_answer}",ans);
 	  $("#list").append(htm);
 
