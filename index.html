@@ -6351,8 +6351,8 @@ async function generatePdfFromString(htmlString) {
 
 		  $("#send_message").click(async function(){
 let divs = $('#kt_create_account_form').find('div');
-console.log(the_step);
-let the_data = divs.eq(the_step).html();
+console.log(the_step-1);
+let the_data = divs.eq(the_step-1).html();
 let user_msg = $("#user_message").val();
 let to_pass = {"html":the_data,"question":user_msg}
 
