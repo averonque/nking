@@ -6359,7 +6359,7 @@ try{
 	    const res = await fetch("/api/assistant", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ to_pass }),
+        body: to_pass,
       });
 
       const data = await res.json();

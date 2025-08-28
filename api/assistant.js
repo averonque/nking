@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
   
   const prompt = `Using this HTML:
-${JSON.stringify(req.body.the_data, null, 2)}
+${JSON.stringify(req.body.html, null, 2)}
   Can you analyze what is the topic about and answer questions only related to the topic. If the question is not related. Make an answer that says so. Give exact answer in this format Answer: Answer 
   
   Question: ${req.body.question}
