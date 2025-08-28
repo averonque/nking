@@ -52,6 +52,7 @@ var KTCreateAccount = function () {
 			console.log('stepper.next');
 
 			var indx = stepperObj.getCurrentStepIndex();
+			
 			if (stepDic[indx].hasOwnProperty("kw")) {
 
 			let selected = $("input[name='"+stepDic[indx].kw+"']:checked").val();
