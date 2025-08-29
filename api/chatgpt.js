@@ -206,7 +206,7 @@ ${JSON.stringify(req.body, null, 2)}
       model: "gpt-4o-mini", // or gpt-4o / gpt-3.5-turbo etc.
       messages: [
        
-          { role: "system", content: "You are a document generator. Always return HTML with <div class='page'> wrappers for each logical page. Make sure the length of each page will fit in a pdf page with enough margin at the bottom before going to the next page." },
+          { role: "system", content: "You are a document generator. Always return HTML with <div class='page'> wrappers for each logical page. Put enough html inside the <div class='page'> to fit in a pdf page with enough margin at the bottom before going to the next page." },
           { role: "user", content: prompt }
         ],
         temperature: 0.3
