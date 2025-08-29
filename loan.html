@@ -804,7 +804,7 @@
 
 <span class=" form-check form-check-custom form-check-solid">
 	 <label class="form-check d-flex align-items-center form-check-custom form-check-solid">
-    <input class="form-check-input me-2" type="radio" name="account_plan" value="Yes">
+    <input class="form-check-input me-2" type="radio" name="officer_certicate_required" value="Yes">
    Yes
   </label>
 </span>
@@ -815,7 +815,7 @@
 
 <span class=" form-check form-check-custom form-check-solid">
 	 <label class="form-check d-flex align-items-center form-check-custom form-check-solid">
-    <input class="form-check-input me-2" type="radio" name="account_plan" value="No">
+    <input class="form-check-input me-2" type="radio" name="officer_certicate_required"  value="No">
 No
 </label>
 	</span>
@@ -5927,10 +5927,13 @@ async function generatePdfFromString(htmlString) {
 				const entity_type = $("#entity_type").val();
 				const corporate_legal_name = $("#corporate_legal_name").val();
 				const borrower_identity = {entity_type:entity_type,corporate_legal_name};
+
+
+				const lender_trust_info = {};
 				
 				let authorized_signers = [];
 			
-				var distribution_mode = $("input[name='account_plan']:checked").val();
+				var officer_certicate_required = $("input[name='officer_certicate_required']:checked").val();
 
 				for(var i=0; i<grantor_count; i++){
 					var dic = {};
@@ -5946,7 +5949,7 @@ async function generatePdfFromString(htmlString) {
 				}
 
 
-			htmlString = await generateTrustDocument({borrower_identity,authorized_signers });
+			htmlString = await generateTrustDocument({borrower_identity,authorized_signers, officer_certicate_required });
 	
 			generatePdfFromString(htmlString);
 
