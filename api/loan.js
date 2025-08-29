@@ -186,7 +186,7 @@ A. Parties & Intro
 This Corporate Loan Agreement (“Agreement”) is made effective as of {{effectiveDate}} by and between {{trustName}} (“Lender”) and {{borrowerLegalName}}, a corporation organized under the laws of {{stateOfIncorporation}}, with its principal office at {{borrowerAddress}} (“Borrower”).
 
 B. Loan Terms
-Loan Amount. Lender agrees to lend Borrower ${{loanAmount}}. 
+Loan Amount. Lender agrees to lend Borrower {{loanAmount}}. 
 Interest. {{#if interestRate}}The loan shall bear interest at {{interestRate}}% per annum.{{else}}This loan shall be interest-free.{{/if}}
 Repayment. The Loan shall be repaid in {{paymentSchedule}} installments beginning {{firstPaymentDate}}, continuing until {{termMonths}} months/years, unless accelerated upon default.
 Prepayment. {{prepayClause}}
