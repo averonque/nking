@@ -22,7 +22,186 @@ Guidelines:
 2. Make the font bigger so it can occupy a page
 3. Replace all variables "$REPLACE" with values from the JSON data if available if not make a placeholder values.
 
+Scope & Goal
 
+A loan from the Trust (Lender) to a Corporation or Large Business (Borrower).
+Builder produces:
+
+Loan Agreement (core contract)
+
+Auto-attached exhibits (depending on answers):
+
+Promissory Note (Exhibit A)
+Security Agreement (Exhibit B)
+Personal/Corporate Guarantees (Exhibit C)
+UCC-1 Financing Statement Info Sheet (Exhibit D)
+Collateral Schedule (Exhibit E)
+Board Resolution (Exhibit F) authorizing the loan
+Officer’s Certificate (Exhibit G) verifying authority & good standing
+
+Footer reminder: “This document is for educational purposes only. It is not legal advice. Consult a licensed attorney or notary.”
+
+1) Questions (form answers)
+
+A. Borrower Identity
+Entity type → Corporation / Large LLC / Other
+Corporate legal name → $REPLACE
+State of incorporation → $REPLACE
+Business address → $REPLACE
+Tax ID / EIN (optional)
+
+B. Authorized Signers
+Signer’s full legal name → $REPLACE
+Signer’s corporate office → CEO, President, CFO, Treasurer, etc.
+Is a Board Resolution required?
+Yes → Exhibit F auto-attached
+No → skip
+
+C. Officer Certificate
+Officer’s Certificate required?
+Yes → Exhibit G auto-attached
+No → skip
+
+D. Lender (Trust) Info
+Trust name → $REPLACE
+Trust address → $REPLACE
+Trustee name & title → $REPLACE, $REPLACE
+
+E. Loan Terms
+Loan amount → $REPLACE
+Interest rate (%) → $REPLACE (0% or fixed)
+Term (months/years) → $REPLACE
+Payment schedule → Monthly / Quarterly / Balloon
+First payment date → $REPLACE
+Late fee → $REPLACE
+Prepayment → Allowed anytime / Allowed with penalty %
+
+F. Purpose
+Describe loan purpose → $REPLACE
+Restricted uses toggle (e.g., no dividends, no unlawful use)
+
+G. Collateral
+Secured? → Yes/No
+Collateral description → $REPLACE
+UCC-1 filing needed? → Yes/No
+Collateral schedule → Exhibit E
+
+H. Guarantees
+Require corporate or personal guaranty?
+Yes → Exhibit C
+No
+
+I. Expanded Covenants
+Financial covenants (check any)
+Maintain Debt Service Coverage Ratio of X
+Maintain Minimum Net Worth of $X
+Deliver audited financials annually
+Quarterly management-prepared P&L and balance sheet
+
+Negative covenants (check any)
+No additional debt > $X without consent
+No dividends / distributions > $X
+No mergers, acquisitions, or major asset sales
+No change of control without consent
+
+Affirmative covenants (check any)
+Maintain insurance with lender named as loss payee
+Pay all taxes and remain in good standing
+Keep adequate books and allow inspection
+
+J. Default & Remedies
+Grace period for missed payment → $REPLACE
+Other default triggers toggle (bankruptcy, false reps, covenant breaches)
+
+K. Legal Boilerplate
+Governing law (state) → $REPLACE
+Dispute resolution → Court / Arbitration
+Notices auto-pulled from addresses
+Assignment clause → Allowed / Not allowed
+E-sign clause → Include / Exclude
+
+L. Execution
+Effective date → today by default
+Witness/Notary block? → Yes/No
+
+2) Clause Library
+
+A. Parties & Intro
+This Corporate Loan Agreement (“Agreement”) is made effective as of $REPLACE by and between $REPLACE (“Lender”) and $REPLACE, a corporation organized under the laws of $REPLACE, with its principal office at $REPLACE (“Borrower”).
+
+B. Loan Terms
+Loan Amount. Lender agrees to lend Borrower $REPLACE.
+Interest. $REPLACE
+Repayment. The Loan shall be repaid in $REPLACE installments beginning $REPLACE, continuing until $REPLACE months/years, unless accelerated upon default.
+Prepayment. $REPLACE
+Late Fee. A late fee of $REPLACE applies after $REPLACE days delinquent.
+
+C. Covenants (toggle inserts)
+Financial covenants: Net worth, ratios, audited financials, etc.
+Negative covenants: No excess debt, dividends, M&A, change of control.
+Affirmative covenants: Insurance, taxes, good standing, inspections.
+
+D. Security (if collateral)
+Borrower grants Lender a first-priority security interest in the Collateral described in Exhibit E. Borrower agrees to execute all documents necessary to perfect this interest, including UCC-1 filings.
+
+E. Guarantees
+Guaranty. As additional assurance, $REPLACE guarantees full repayment of Borrower’s obligations. See Exhibit C.
+
+F. Defaults & Remedies
+Events of Default include:
+
+Nonpayment after $REPLACE days,
+
+Insolvency or bankruptcy,
+
+Breach of covenant or representation,
+
+Unauthorized transfer or merger.
+
+Upon Default, Lender may accelerate all amounts due, enforce security interests, collect collateral, and seek legal remedies including attorney’s fees.
+
+G. Miscellaneous
+Governing law / venue clause
+Arbitration option
+Notices clause
+Assignment clause
+Entire Agreement, Amendments, Counterparts, E-signatures
+Usury savings clause
+
+3) Exhibits
+
+Exhibit A – Promissory Note (corporate borrower format)
+Exhibit B – Security Agreement (if collateral pledged)
+Exhibit C – Guaranty (if selected, could be corporate subsidiary or personal owners)
+Exhibit D – UCC-1 Info Sheet
+Exhibit E – Collateral Schedule
+Exhibit F – Board Resolution
+
+Approves borrowing
+
+Names officer authorized to sign
+
+Exhibit G – Officer’s Certificate
+
+Certifies borrower is in good standing
+
+Attaches Articles of Incorporation and Bylaws excerpts
+
+Confirms board resolution validity
+
+4) Signatures
+
+IN WITNESS WHEREOF, the parties execute this Agreement as of $REPLACE.
+
+Borrower: $REPLACE
+By: ________________________
+Name: $REPLACE
+Title: $REPLACE
+
+Lender: $REPLACE
+By: ________________________
+Name: $REPLACE
+Title: $REPLACE
 
 
 Optional Notary block same as Small Business version.
