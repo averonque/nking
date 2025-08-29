@@ -5591,7 +5591,7 @@ async function generateTrustDocument(jsonData) {
 
 
 try{
-	    const res = await fetch("/api/chatgpt", {
+	    const res = await fetch("/api/loan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ jsonData }),
