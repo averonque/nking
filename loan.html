@@ -1052,7 +1052,7 @@ No
 							<div class="mb-10 fv-row">
 								<label class="form-label mb-3">Describe Loan Purpose</label>
 
-	<textarea class="form-control form-control-flush mb-3" rows="1" data-kt-element="input" id="user_message" placeholder="Type a message"></textarea>
+	<textarea class="form-control form-control-flush mb-3" rows="1" data-kt-element="input" id="loan_purpose" placeholder="Type a message"></textarea>
 								</div>
 
 <div class="mb-10 fv-row">
@@ -5926,10 +5926,36 @@ async function generatePdfFromString(htmlString) {
 				
 				const entity_type = $("#entity_type").val();
 				const corporate_legal_name = $("#corporate_legal_name").val();
-				const borrower_identity = {entity_type:entity_type,corporate_legal_name};
+				const state_of_incorporation = $("#state_of_incorporation").val();
+				const business_address = $("#business_address").val();
+				const tax_id_ein = $("#tax_id_ein").val();
+
+				const borrower_identity = {entity_type:entity_type,corporate_legal_name, state_of_incorporation:state_of_incorporation, business_address: business_address, tax_id_ein: tax_id_ein};
 
 
-				const lender_trust_info = {};
+				const trust_name = $("#trust_name").val();
+				const trust_address = $("#trust_address").val();
+				const trustee_name = $("#trustee_name").val();
+				const trustee_title = $("#trustee_title").val();
+				
+				const lender_trust_info = {trust_name: trust_name, trust_address: trust_address, trustee_name: trustee_name, trustee_title:trustee_title};
+
+
+				const loan_amount = $("#loan_amount").val();
+				const interest_rate = $("#interest_rate").val();
+				const terms_months_years = $("#terms_months_years").val();
+				const payment_schedule = $("#payment_schedule").val();
+
+				const first_payment_date = $("#first_payment_date").val();
+				const late_fee = $("#late_fee").val();
+				const prepayment = $("#prepayment").val();
+
+				const loan_terms = {loan_amount:loan_amount, interest_rate: interest_rate, terms_months_years: terms_months_years, first_payment_date: first_payment_date, late_fee:late_fee, prepayment:prepayment};
+
+				var purpose_options = $('input[type="checkbox"][name="purpose_options"]:checked');
+				const loan_purpose = $("#loan_purpose").val();
+
+				const the_purpose = {loan_purpose: loan_purpose, purpose_options:purpose_options}
 				
 				let authorized_signers = [];
 			
@@ -5949,7 +5975,7 @@ async function generatePdfFromString(htmlString) {
 				}
 
 
-			htmlString = await generateTrustDocument({borrower_identity,authorized_signers, officer_certicate_required });
+			htmlString = await generateTrustDocument({borrower_identity,authorized_signers, officer_certicate_required, lender_trust_info, loan_terms, the_purpose });
 	
 			generatePdfFromString(htmlString);
 
