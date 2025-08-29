@@ -1,6 +1,6 @@
 "use strict";
 
-let the_step = 1;
+let the_step = 0;
 // Class definition
 var KTCreateAccount = function () {
 	// Elements
