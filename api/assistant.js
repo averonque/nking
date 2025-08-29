@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   
   const prompt = `Using this HTML:
 ${JSON.stringify(req.body.to_pass.html, null, 2)}
-  Can you analyze what is the topic about and answer questions only related to the topic. If the question is not related. Make an answer that says so. Give exact answer in this format Answer: Answer 
+  Can you analyze what is the topic about and answer questions only related to the topic. Grade the question or statement from 40% to 100% how related it is to the topic If its 60% or more. Then search the intenet to make the proper response. If it is 90% to 100% not related make an answer that says so. Give exact answer in this format Answer: Answer 
   
   Question: ${req.body.to_pass.question}
 

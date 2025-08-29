@@ -1074,6 +1074,47 @@ No
 
 
 
+	<div  data-kt-stepper-element="content">
+	<div class="w-100" id="execution_and_signers">
+						<!--begin::Heading-->
+						<div class="pb-10 pb-lg-15">
+							<!--begin::Title-->
+							<h2 class="fw-bold text-gray-900">Purpose
+</h2>
+							<!--end::Title-->
+							<!--begin::Notice-->
+							<div class="text-muted fw-semibold fs-6">
+</div>
+							<!--end::Notice-->
+						</div>
+						<!--end::Heading-->
+							<div class="mb-10 fv-row">
+								<label class="form-label mb-3">Describe Loan Purpose</label>
+
+	<textarea class="form-control form-control-flush mb-3" rows="1" data-kt-element="input" id="loan_purpose" placeholder="Type a message"></textarea>
+								</div>
+
+<div class="mb-10 fv-row">
+	<label class="form-check form-switch form-check-custom form-check-solid">
+		<input class="form-check-input" name="purpose_options" type="checkbox" value="restricted_uses"  />
+		<span class="form-check-label fw-semibold text-muted">Restricted Uses</span>
+	</label>
+</div>
+
+<div class="mb-10 fv-row">
+	<label class="form-check form-switch form-check-custom form-check-solid">
+		<input class="form-check-input" name="purpose_options" type="checkbox" value="no_dividens_unlawful_use" />
+		<span class="form-check-label fw-semibold text-muted">No dividends / unlawful use</span>
+	</label>
+</div>
+					</div>
+					</div>
+
+
+
+
+
+
 			<div data-kt-stepper-element="content">
 														<!--begin::Wrapper-->
 														<div class="w-100">
@@ -6016,7 +6057,7 @@ async function generatePdfFromString(htmlString) {
 			$("#user_message").val("");
 
 
-try{
+	try{
 	    const res = await fetch("/api/assistant", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
