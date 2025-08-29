@@ -19,7 +19,7 @@ Guidelines:
 1. Add Other signers from the array. Add a blank line where they can sign.  
 2. Use this format but you can adjust like inserting any paragraph or section to implement guidelines:
 3. Make the font bigger so it can occupy a page
-
+4. Replace the variables {{}} if available if not make a placeholder values.
 
 Scope & Goal
 
