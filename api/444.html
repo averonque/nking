@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Combine PDF Pages</title>
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2em;
+      background: #f9f9f9;
+    }
+    input, button {
+      margin-top: 1em;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>📚 Combine PDF Pages into One</h1>
+  <input type="file" id="pdfFile" accept="application/pdf" />
+  <br />
+  <button onclick="combinePages()">Merge Pages</button>
+
+  <script>
+    async function combinePages() {
+      const fileInput = document.getElementById('pdfFile');
+      if (!fileInput.files.length) {
+        alert("Please select a PDF file first.");
+        return;
+      }
+
+      const file = fileInput.files[0];
+      const arrayBuffer = await file.arrayBuffer();
+      const originalPdf = await PDFLib.PDFDocument.load(arrayBuffer);
+      const mergedPdf = await PDFLib.PDFDocument.create();
+
+      const pages = await mergedPdf.copyPages(originalPdf, originalPdf.getPageIndices());
+
+      // Calculate total height
+      const totalHeight = pages.reduce((sum, page) => sum + page.getSize().height, 0);
+      const width = pages[0].getSize().width;
+
+      const newPage = mergedPdf.addPage([width, totalHeight]);
+
+      let currentY = totalHeight;
+     for (const page of pages) {
+  const { width: pw, height: ph } = page.getSize();
+  currentY -= ph;
+
+  const embeddedPage = await mergedPdf.embedPage(page);
+  newPage.drawPage(embeddedPage, { x: 0, y: currentY });
+}
+      const pdfBytes = await mergedPdf.save();
+      download(pdfBytes, "combined.pdf");
+    }
+
+    function download(bytes, filename) {
+      const blob = new Blob([bytes], { type: "application/pdf" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      link.click();
+    }
+  </script>
+</body>
+</html>
