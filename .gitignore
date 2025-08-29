@@ -8,7 +8,7 @@ yarn-error.log*
 
 # Environment files
 .env
-
+g
 # Build outputs
 .vercel/
 dist/

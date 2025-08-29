@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weight Selector</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+      text-align: center;
+    }
+
+    .unit-toggle {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .unit {
+      padding: 10px 20px;
+      margin: 0 5px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .unit.active {
+      background-color: #4caf50;
+      color: white;
+      border-color: #4caf50;
+    }
+
+    .weight-display {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .scale-container {
+      position: relative;
+      overflow-x: scroll;
+      white-space: nowrap;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      padding: 60px 0 20px;
+      margin-bottom: 20px;
+      background: white;
+    }
+
+    .tick {
+      display: inline-block;
+      width: 10px;
+      position: relative;
+    }
+
+    .tick-line {
+      width: 2px;
+      background-color: #333;
+      margin: 0 auto;
+    }
+   .tick-line-active {
+      width: 2px;
+   background-color: green;
+      margin: 0 auto;
+    }
+
+   
+
+    .tick-label {
+      position: absolute;
+      top: 45px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8em;
+      color: #333;
+    }
+
+    .indicator-line {
+      position: absolute;
+      top: 0;
+      height: 60px;
+      width: 2px;
+      background-color: green;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    .footer {
+      font-size: 0.8em;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="unit-toggle">
+    <div class="unit active" data-unit="kg">kg</div>
+    <div class="unit" data-unit="lb">lb</div>
+  </div>
+
+  <div class="weight-display" id="weightDisplay">20.0 kg</div>
+
+  <div class="scale-container" id="scaleContainer">
+
+    <div id="scaleTicks"></div>
+  </div>
+
+  <div class="footer">
+    Scroll to select weight. The green line marks the current value. Tick height and labels vary by increment.
+  </div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <script>
+    const scaleContainer = document.getElementById('scaleContainer');
+    const scaleTicks = document.getElementById('scaleTicks');
+    const weightDisplay = document.getElementById('weightDisplay');
+    const unitButtons = document.querySelectorAll('.unit');
+
+    let currentUnit = 'kg';
+    let minWeight = 10;
+    let maxWeight = 150;
+
+    // Generate ticks
+    for (let i = minWeight; i <= maxWeight; i++) {
+      const tick = document.createElement('div');
+      tick.className = 'tick';
+     
+
+      const line = document.createElement('div');
+      line.className = 'tick-line ttl';
+        line.id = "id_"+i;
+      // Set height based on type
+    //  if (i === 20) {
+       // line.style.height = '80px'; // special tick
+     // } 
+ if (i % 10 === 0) {
+        line.style.height = '40px'; // major tick
+      } else {
+        line.style.height = '20px'; // minor tick
+      }
+
+      tick.appendChild(line);
+
+      // Add label for major ticks
+      if (i % 10 === 0 || i === 20) {
+        const label = document.createElement('div');
+        label.className = 'tick-label';
+        label.textContent = i;
+        tick.appendChild(label);
+      }
+
+      scaleTicks.appendChild(tick);
+    }
+
+    // Update weight display based on scroll
+    scaleContainer.addEventListener('scroll', () => {
+      const scrollLeft = scaleContainer.scrollLeft;
+      const tickWidth = 10;
+      const centerOffset = scaleContainer.offsetWidth / 2;
+      const index = Math.round((scrollLeft + centerOffset - tickWidth / 2) / tickWidth);
+      const weight = Math.min(Math.max(minWeight + index, minWeight), maxWeight);
+      weightDisplay.textContent = `${weight.toFixed(1)} ${currentUnit}`;
+     
+        $(".ttl").removeClass("tick-line-active");
+   //   $(`#id_${Math.round(weight.toFixed(1))}`).addClass("tick-line");
+ 
+  
+
+   $(`#id_${Math.round(weight.toFixed(1))}`).addClass("tick-line-active");
+
+    });
+
+    // Unit toggle
+    unitButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        unitButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentUnit = btn.dataset.unit;
+        const currentText = weightDisplay.textContent.split(' ')[0];
+        weightDisplay.textContent = `${currentText} ${currentUnit}`;
+      });
+    });
+
+    // Center initial weight (20)
+    window.onload = () => {
+      const tickWidth = 10;
+      const centerIndex = 20 - minWeight;
+      scaleContainer.scrollLeft = centerIndex * tickWidth - scaleContainer.offsetWidth / 2 + tickWidth / 2;
+    };
+  </script>
+
+</body>
+</html>
