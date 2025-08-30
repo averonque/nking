@@ -5669,6 +5669,8 @@ async function generatePdfFromString(htmlString) {
   const { jsPDF } = window.jspdf;
   const pdf = new jsPDF({ unit: "pt", format: "letter" });
 
+	/*
+
   // Parse HTML string into elements
   const container = document.createElement("div");
   container.innerHTML = htmlString;
@@ -5689,7 +5691,24 @@ async function generatePdfFromString(htmlString) {
       pdf.addPage();
     }
   }
+	*/
 
+	
+  // Parse HTML string into elements
+  const container = document.createElement("div");
+  container.innerHTML = htmlString.replace("``` htm","");
+  const pages = container.querySelectorAll(".page");
+
+//  for (let i = 0; i < pages.length; i++) {
+    // Render current page
+    await pdf.html(htmlString.replace("``` htm",""), {
+      x: 0,
+      y: 0,
+      width: pdf.internal.pageSize.getWidth() - 80,
+      windowWidth: 800,
+      autoPaging: true,
+	  margin: [40, 20, 60, 20] // [top, right, bottom, left]
+    });
 
 
  
