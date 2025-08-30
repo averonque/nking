@@ -5927,20 +5927,20 @@ async function generatePdfFromString(htmlString) {
   container.innerHTML = htmlString;
   const pages = container.querySelectorAll(".page");
 
-  for (let i = 0; i < pages.length; i++) {
+//  for (let i = 0; i < pages.length; i++) {
     // Render current page
-    await pdf.html(pages[i], {
+    await pdf.html(htmlString, {
       x: 40,
       y: 40,
       width: pdf.internal.pageSize.getWidth() - 80,
       windowWidth: 800,
-      autoPaging: false
+      autoPaging: true
     });
 
     // Add a blank page after each render, except the last one
-    if (i < pages.length - 1) {
-      pdf.addPage();
-    }
+   // if (i < pages.length - 1) {
+    //  pdf.addPage();
+   // }
   }
 
 
