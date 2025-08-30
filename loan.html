@@ -958,16 +958,16 @@ No
 <label class="fs-6 fw-semibold mb-2 required">Payment Schedule</label>
 <!--end::Label-->
 <!--begin::Input-->
-	<select name="state" id="state" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
-								<option value="Select">Select</option>
+	<select name="state" id="payment_schedule" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
+<option value="Select">Select</option>
 <option selected="selected" value="Monthly">Monthly</option>
 <option value="Quarterly">Quarterly</option>
 <option value="Balloon">Balloon</option>
-
-							</select>
+</select>
 <!--end::Input-->
-<div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div></div>
-
+<div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+	</div>
+	</div>
 						
 </div>
 
@@ -996,7 +996,7 @@ No
 <label class="form-label mb-3">Late Fee</label>
 <!--end::Label-->
 <!--begin::Input-->
-<input type="text" class="form-control form-control-lg form-control-solid" id="term_months_years" name="account_name" placeholder="" value="" />
+<input type="text" class="form-control form-control-lg form-control-solid" id="late_fee" name="account_name" placeholder="" value="" />
 <!--end::Input-->
 </div>
 
@@ -1010,7 +1010,7 @@ No
 <label class="fs-6 fw-semibold mb-2 required">Prepayment</label>
 <!--end::Label-->
 <!--begin::Input-->
-	<select name="state" id="state" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
+	<select name="state" id="prepayment" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
 								<option value="Select">Select</option>
 <option selected="selected" value="Allowed anytime">Allowed anytime</option>
 <option value="Allowed with penalty">Allowed with penalty</option>
@@ -1021,9 +1021,6 @@ No
 
 						
 </div>
-
-
-
 
 	
 </div>
