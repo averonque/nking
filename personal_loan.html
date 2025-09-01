@@ -801,6 +801,7 @@ Fixed % per year
 							<!--end::Notice-->
 						</div>
 			
+
 <div class="mb-10 fv-row">
 
 <span class=" form-check form-check-custom form-check-solid">
@@ -987,24 +988,6 @@ No
 							</select>
 
 </div>
-
-<div class="mb-10 fv-row">
-							<!--begin::Label-->
-							<label class="form-label mb-3"> </label>
-
-							</div>
-
-
-<div class="mb-10 fv-row">
-<!--begin::Label-->
-<label class="form-label mb-3">Borrower Name</label>
-<!--end::Label-->
-<!--begin::Input-->
-<input type="text" class="form-control form-control-lg form-control-solid" id="collateral_description_if_yes" name="account_name" placeholder="" value="" />
-<!--end::Input-->
-</div>
-
-
 
 
 
@@ -5914,10 +5897,17 @@ async function generatePdfFromString(htmlString) {
 				var penalty_rate_percent_of_balance = $("#penalty_rate_percent_of_balance").val();
 
 				const default_and_remedies = {penalty_for_default:penalty_for_default, penalty_rate_percent_of_balance: penalty_rate_percent_of_balance};
-		
+
+				const loan_secured_with_collateral  = $("input[name='loan_secured_with_collateral']:checked").val();
+
+				const collateral_description_if_yes = $("#collateral_description_if_yes").val();
+
+				const collateral_info = {loan_secured_with_collateral: loan_secured_with_collateral, collateral_description_if_yes: collateral_description_if_yes};
+
+
 				const governing_state = $("#state").val();
 			
-			const json_Data= {loan_basic, loan_terms, governing_state: governing_state };
+			const json_Data= {loan_basic, loan_terms, governing_state: governing_state, collateral_info };
 			console.log(json_Data);
 			htmlString = await generateTrustDocument(json_Data);
 	
@@ -5927,7 +5917,7 @@ async function generatePdfFromString(htmlString) {
 	}
 	
 		var cnt = 0;
-		$("#lump_specify_date").flatpickr({
+		$("#lump_sum_specify_date").flatpickr({
 		enableTime: true,
 		dateFormat: "Y-m-d",
 		})
