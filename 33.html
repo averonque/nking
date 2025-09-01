@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Agreement Builder</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.5; }
+    fieldset { margin-bottom: 20px; padding: 15px; border-radius: 8px; border: 1px solid #ccc; }
+    legend { font-weight: bold; }
+    label { display: block; margin-top: 10px; }
+    input, select, textarea { width: 100%; padding: 6px; margin-top: 4px; }
+    .inline { display: inline-block; margin-right: 10px; }
+    small { color: #666; }
+  </style>
+</head>
+<body>
+
+<h1>Small Business Loan Agreement Builder</h1>
+<p><small>Educational tool. Not legal advice. Consult a licensed attorney/notary.</small></p>
+
+<form id="loanForm">
+
+  <!-- Borrower Identity -->
+  <fieldset>
+    <legend>A. Borrower Identity</legend>
+    <label>Business type:
+      <select name="borrowerEntityType" required>
+        <option>LLC</option>
+        <option>Partnership</option>
+        <option>Sole Proprietor / DBA</option>
+      </select>
+    </label>
+    <label>Legal business name: <input type="text" name="borrowerLegalName"></label>
+    <label>DBA name (if any): <input type="text" name="borrowerDBA"></label>
+    <label>State of formation: <input type="text" name="borrowerStateOfFormation"></label>
+    <label>Business address: <textarea name="borrowerAddress"></textarea></label>
+    <label>Tax ID / EIN (optional): <input type="text" name="borrowerEIN"></label>
+  </fieldset>
+
+  <!-- Authorized Signer -->
+  <fieldset>
+    <legend>B. Authorized Signer</legend>
+    <label>Signer’s full legal name: <input type="text" name="signerName"></label>
+    <label>Signer’s title: <input type="text" name="signerTitle"></label>
+    <label>Authority basis:
+      <select name="authorityBasis">
+        <option>Operating Agreement / Member Consent (LLC)</option>
+        <option>Partnership Agreement / Partner Consent</option>
+        <option>Sole Proprietor authorization (self)</option>
+        <option>Corporate Resolution</option>
+      </select>
+    </label>
+  </fieldset>
+
+  <!-- Lender -->
+  <fieldset>
+    <legend>C. Lender (Trust)</legend>
+    <label>Trust name: <input type="text" name="trustName"></label>
+    <label>Trust address: <textarea name="trustAddress"></textarea></label>
+    <label>Trustee signing name: <input type="text" name="trusteeName"></label>
+    <label>Trustee title: <input type="text" name="trusteeTitle"></label>
+  </fieldset>
+
+  <!-- Loan Economics -->
+  <fieldset>
+    <legend>D. Loan Economics</legend>
+    <label>Loan amount (USD): <input type="number" name="loanAmount"></label>
+    <label>Interest type:
+      <select name="interestType">
+        <option value="0">0% (interest-free)</option>
+        <option value="fixed">Fixed APR</option>
+      </select>
+    </label>
+    <label>If Fixed APR: <input type="number" step="0.01" name="interestRate"> %</label>
+    <label>Term length (months): <input type="number" name="termMonths"></label>
+    <label>Payment frequency:
+      <select name="paymentFrequency">
+        <option>Monthly</option>
+        <option>Quarterly</option>
+        <option>One balloon date</option>
+      </select>
+    </label>
+    <label>First payment due date: <input type="date" name="firstPaymentDate"></label>
+    <label>Late fee (flat or %): <input type="text" name="lateFee"></label>
+    <label>Prepayment:
+      <select name="prepayment">
+        <option value="noPenalty">Allowed anytime without penalty</option>
+        <option value="penalty">Allowed with penalty</option>
+      </select>
+    </label>
+    <label>If penalty, %: <input type="number" step="0.01" name="prepayPenaltyPct"></label>
+  </fieldset>
+
+  <!-- Purpose -->
+  <fieldset>
+    <legend>E. Purpose & Use of Proceeds</legend>
+    <label>Business purpose: <textarea name="useOfProceeds"></textarea></label>
+  </fieldset>
+
+  <!-- Collateral -->
+  <fieldset>
+    <legend>F. Collateral (Optional)</legend>
+    <label>Is the loan secured?
+      <select name="secured">
+        <option>No</option>
+        <option>Yes</option>
+      </select>
+    </label>
+    <label>If yes, collateral description: <textarea name="collateralDescription"></textarea></label>
+    <label>File UCC-1?
+      <select name="ucc1">
+        <option>No</option>
+        <option>Yes</option>
+      </select>
+    </label>
+  </fieldset>
+
+  <!-- Personal Guarantees -->
+  <fieldset>
+    <legend>G. Personal Guarantees (Optional)</legend>
+    <label>Require guarantors?
+      <select name="guaranty">
+        <option>No</option>
+        <option>Yes</option>
+      </select>
+    </label>
+    <label>If yes, list guarantors (name & address): <textarea name="guarantors"></textarea></label>
+  </fieldset>
+
+  <!-- Covenants -->
+  <fieldset>
+    <legend>H. Covenants</legend>
+    <label><input type="checkbox" name="covenants" value="financialReports"> Provide financial reports</label>
+    <label><input type="checkbox" name="covenants" value="insurance"> Maintain liability insurance</label>
+    <label><input type="checkbox" name="covenants" value="noDebt"> No additional debt without consent</label>
+    <label><input type="checkbox" name="covenants" value="noDividends"> No distributions above threshold</label>
+    <label><input type="checkbox" name="covenants" value="noCollateralSale"> No sale of collateral</label>
+    <label><input type="checkbox" name="covenants" value="goodStanding"> Maintain good standing</label>
+    <label><input type="checkbox" name="covenants" value="payTaxes"> Pay taxes and comply with laws</label>
+  </fieldset>
+
+  <!-- Defaults -->
+  <fieldset>
+    <legend>I. Defaults & Remedies</legend>
+    <label>Grace days for missed payment: <input type="number" name="graceDays"></label>
+    <label><input type="checkbox" name="defaults" value="insolvency"> Insolvency/bankruptcy</label>
+    <label><input type="checkbox" name="defaults" value="falseStatements"> False statements</label>
+    <label><input type="checkbox" name="defaults" value="breachCovenants"> Breach of covenants</label>
+  </fieldset>
+
+  <!-- Legal -->
+  <fieldset>
+    <legend>J. Legal Boilerplate</legend>
+    <label>Governing law (state): <input type="text" name="governingLawState"></label>
+    <label>Dispute method:
+      <select name="disputeMethod">
+        <option>Court</option>
+        <option>Arbitration</option>
+      </select>
+    </label>
+    <label>Assignment:
+      <select name="assignment">
+        <option>Not allowed without consent</option>
+        <option>Allowed</option>
+      </select>
+    </label>
+    <label><input type="checkbox" name="esign" checked> Include e-sign clause</label>
+  </fieldset>
+
+  <!-- Execution -->
+  <fieldset>
+    <legend>K. Execution</legend>
+    <label>Effective date: <input type="date" name="effectiveDate"></label>
+    <label><input type="checkbox" name="notary"> Include Notary Block</label>
+  </fieldset>
+
+  <button type="submit">Generate Agreement</button>
+</form>
+
+</body>
+</html>
