@@ -681,7 +681,7 @@
 <label class="form-label mb-3">Loan Amount</label>
 <!--end::Label-->
 <!--begin::Input-->
-<input type="text" class="form-control form-control-lg form-control-solid" id="borrowers_full_legal_name" name="account_name" placeholder="" value="" />
+<input type="text" class="form-control form-control-lg form-control-solid" id="loan_amount" name="account_name" placeholder="" value="" />
 <!--end::Input-->
 </div>
 
@@ -5915,8 +5915,9 @@ async function generatePdfFromString(htmlString) {
 
 				const default_and_remedies = {penalty_for_default:penalty_for_default, penalty_rate_percent_of_balance: penalty_rate_percent_of_balance};
 		
+				const governing_state = $("#state").val();
 			
-			const json_Data= {loan_basic, loan_terms, default_and_remedies };
+			const json_Data= {loan_basic, loan_terms, governing_state: governing_state };
 			console.log(json_Data);
 			htmlString = await generateTrustDocument(json_Data);
 	
