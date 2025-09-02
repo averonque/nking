@@ -16,9 +16,9 @@ var KTCreateAccount = function () {
 	var stepperObj;
 	var validations = [];
 
-	var stepDic = {1:{next:2},2:{next:3, prev:1},3:{yes:8,next:4,kw:"isMarried",prev:2},4:{prev:3,next:5},5:{prev:3,next:6},6:{prev:5,next:7},7:{prev:6,next:8},8:{prev:7,next:9},9:{prev:8,next:10}};
+	var stepDic = {1:{next:2},2:{next:3, prev:1},3:{yes:8,next:4,kw:"isMarried",prev:2},4:{prev:3,next:5},5:{prev:3,next:6},6:{prev:5,next:7},7:{prev:6,next:8},8:{prev:7,next:9},9:{prev:8,next:10},10:{prev:9,next:11}};
 
-	  let totalSteps = 5;   // total number of steps
+  let totalSteps = 10;   // total number of steps
   let currentStep = 0;  // start at step 0
 
   function updateProgress() {
@@ -77,8 +77,8 @@ var KTCreateAccount = function () {
 
 
 			// Validate form before change stepper step
-			var validator = validations[stepper.getCurrentStepIndex() - 1]; // get validator for currnt step
-			console.log(validator);
+		//	var validator = validations[stepper.getCurrentStepIndex() - 1]; // get validator for currnt step
+			//console.log(validator);
 			
 			/*
 			if (validator) {
