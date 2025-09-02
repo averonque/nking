@@ -6334,8 +6334,8 @@ async function generatePdfFromString(htmlString) {
 				const business_purpose = $("#business_purpose").val();
 				const is_the_loan_secured= $("#is_the_loan_secured").val();
 
-				const collateral_description = $("#collateral_description");
-				const file_ucc_one = $("#file_ucc_one");
+				const collateral_description = $("#collateral_description").val();
+				const file_ucc_one = $("#file_ucc_one").val();
 
 				const collateral = {is_the_loan_secured:is_the_loan_secured,collateral_description:collateral_description, file_ucc_one:file_ucc_one};
 
@@ -6383,8 +6383,12 @@ async function generatePdfFromString(htmlString) {
 				const legal_boiler_plate = {governing_law_state:governing_law_state,dispute_method:dispute_method,assignment:assignment,sign_clause:sign_clause};
 
 				const effective_date = $("#effective_date").val();
+				const the_data = {borrower_identity,authorized_signers, lender_trust_info, loan_terms, business_purpose, collateral, personal_guarantees, covenants, defaults_and_remedies,legal_boiler_plate, effective_date};
 
-				htmlString = await generateTrustDocument({borrower_identity,authorized_signers, lender_trust_info, loan_terms, business_purpose, collateral, personal_guarantees, covenants, defaults_and_remedies,legal_boiler_plate, effective_date});
+				console.log(the_data);
+
+
+				htmlString = await generateTrustDocument(the_data);
 				generatePdfFromString(htmlString);
 
 			}
