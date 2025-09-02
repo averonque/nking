@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   
   const prompt = `
 You are a legal document generator.
-Using the following JSON data, generate a professional Personal Loan Agreement document.
+Using the following JSON data, generate a professional Small Business Loan Agreement document.
 JSON:
 ${JSON.stringify(req.body, null, 2)}
 
