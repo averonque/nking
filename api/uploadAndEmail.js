@@ -6,6 +6,7 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).send('Method Not Allowed');
 
   try {
+    console.log(req.body);
     const { email, name, address, pdfBase64 } = req.body;
 
     if (!email || !name || !address || !pdfBase64) {
