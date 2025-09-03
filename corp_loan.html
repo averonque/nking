@@ -6404,7 +6404,7 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
       const result = await response.json();
       console.log('Uploadcare response:', result);
 	  const downloadLink = "https://ucarecdn.com/"+result.file+`/document-${Date.now()}.pdf`;
-  		await sendEmail(downloadLink, 'Arthur', '123 Main St', 'averonque09@gmail.com');
+  	await sendEmail(downloadLink, $("#full_name").val(), '123 Main St', $("#your_email").val());
  
     } catch (err) {
       console.error('Upload failed:', err);

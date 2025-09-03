@@ -596,6 +596,9 @@
 <div class="stepper-item" data-kt-stepper-element="nav">
 		
 	</div>
+<div class="stepper-item" data-kt-stepper-element="nav">
+		
+	</div>
 
 
 
@@ -2067,7 +2070,7 @@
 														</div>
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
-														<div>
+														<div id="continue_button" >
 															<button type="button" class="btn btn-lg btn-primary me-3" data-kt-stepper-action="submit">
 																<span class="indicator-label">Submit 
 																<i class="ki-duotone ki-arrow-right fs-3 ms-2 me-0">
@@ -6310,7 +6313,7 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
       const result = await response.json();
       console.log('Uploadcare response:', result);
 	  const downloadLink = "https://ucarecdn.com/"+result.file+`/document-${Date.now()}.pdf`;
-  		await sendEmail(downloadLink, 'Arthur', '123 Main St', 'averonque09@gmail.com');
+  		await sendEmail(downloadLink, $("#full_name").val(), '123 Main St', $("#your_email").val());
  
     } catch (err) {
       console.error('Upload failed:', err);

@@ -590,6 +590,9 @@
 											<div class="stepper-item" data-kt-stepper-element="nav">
 														
 													</div>
+														<div class="stepper-item" data-kt-stepper-element="nav">
+														
+													</div>
 
 			</div>
 			<!--end::Nav-->
@@ -1494,11 +1497,19 @@ No
 																<span class="indicator-progress">Please wait... 
 																<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 															</button>
-															<button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Continue 
+
+															<button type="button" id="continue_button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Continue 
 															<i class="ki-duotone ki-arrow-right fs-4 ms-1 me-0">
 																<span class="path1"></span>
 																<span class="path2"></span>
 															</i></button>
+
+															<button type="button" id="finish_button" style="display:none;" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Finish
+															<i class="ki-duotone ki-arrow-right fs-4 ms-1 me-0">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i></button>
+
 														</div>
 														<!--end::Wrapper-->
 													</div>
@@ -5728,7 +5739,7 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
       const result = await response.json();
       console.log('Uploadcare response:', result);
 	  const downloadLink = "https://ucarecdn.com/"+result.file+`/document-${Date.now()}.pdf`;
-  		await sendEmail(downloadLink, 'Arthur', '123 Main St', 'averonque09@gmail.com');
+  		await sendEmail(downloadLink, $("#full_name").val(), '123 Main St', $("#your_email").val());
  
     } catch (err) {
       console.error('Upload failed:', err);
