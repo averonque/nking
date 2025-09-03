@@ -6350,20 +6350,15 @@ async function generatePdfFromString(htmlString) {
 	
 const pdfBlob = pdf.output('blob');
 
+const uploadToUploadcare = async (blob) => {
+  const client = uploadcare.createClient({ publicKey: '6ba144327ef30beb9eab' });
 
-// Upload to file.io
-const uploadToFileIO = async (blob) => {
-  const formData = new FormData();
-  formData.append('file', blob, 'document.pdf');
-  formData.append('expires', '1d');
-
-  const response = await fetch('https://file.io', {
-    method: 'POST',
-    body: formData,
+  const file = await client.uploadFile(blob, {
+    fileName: 'document.pdf',
+    contentType: 'application/pdf',
   });
 
-  const result = await response.json();
-  return result.link; // Direct download link
+  return file.cdnUrl; // Direct link to the uploaded PDF
 };
 
 // Send email via EmailJS
