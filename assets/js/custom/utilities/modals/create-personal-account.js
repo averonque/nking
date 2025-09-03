@@ -18,9 +18,10 @@ var KTCreateAccount = function () {
 
 	var stepDic = {1:{next:2},2:{next:3, prev:1},3:{yes:8,next:4,kw:"isMarried",prev:2},4:{prev:3,next:5}};
 
-	  let totalSteps = 5;   // total number of steps
-  let currentStep = 0;  // start at step 0
-
+	let totalSteps = 5;   // total number of steps
+  	let currentStep = 0;  // start at step 0
+	let provided = false;
+	
   function updateProgress() {
     let progress = (currentStep / totalSteps) * 100;
     let bar = document.getElementById("theProgress");
@@ -54,6 +55,13 @@ var KTCreateAccount = function () {
 
 			var indx = stepperObj.getCurrentStepIndex();
 			the_step = indx;
+
+		
+	if($("#full_name").val()!="" && $("#address").val()!="" && $("#your_email").val()!=""){
+				provided = true;
+			}
+
+			if(provided){
 			
 			if (stepDic[indx].hasOwnProperty("kw")) {
 
@@ -75,10 +83,11 @@ var KTCreateAccount = function () {
 		//	stepper.goNext();
 			KTUtil.scrollTop();
 
+		}
 
 			// Validate form before change stepper step
-			var validator = validations[stepper.getCurrentStepIndex() - 1]; // get validator for currnt step
-			console.log(validator);
+			//var validator = validations[stepper.getCurrentStepIndex() - 1]; // get validator for currnt step
+		//	console.log(validator);
 			
 			/*
 			if (validator) {

@@ -2345,7 +2345,7 @@ Affirmative Covenants
 										<!--end::Card body-->
 									</div>
 
-								<div class="card">
+								<div class="card" id="pdf_preview" style="display:none;">
 									<div class="card-toolbar">
 														<ul class="nav nav-tabs nav-line-tabs nav-stretch border-transparent fs-5 fw-bold" id="kt_security_summary_tabs" role="tablist">
 															<li class="nav-item" role="presentation">
@@ -2363,7 +2363,7 @@ Affirmative Covenants
 														</ul>
 													</div>
 										<!--begin::Card body-->
-										<div class="card-body">
+										<div class="card-body" >
 											<!--<img src="http://127.0.0.1:8000/static/page1.png" id="the_preview" style="width:100%; height:auto;"
 											/>-->
 											<canvas id="pdf-render" style="width:100%; height:auto;"></canvas>
@@ -6404,7 +6404,7 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
       const result = await response.json();
       console.log('Uploadcare response:', result);
 	  const downloadLink = "https://ucarecdn.com/"+result.file+`/document-${Date.now()}.pdf`;
-  await sendEmail(downloadLink, 'Arthur', '123 Main St', 'averonque09@gmail.com');
+  		await sendEmail(downloadLink, 'Arthur', '123 Main St', 'averonque09@gmail.com');
  
     } catch (err) {
       console.error('Upload failed:', err);
