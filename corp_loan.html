@@ -6344,10 +6344,11 @@ async function generatePdfFromString(htmlString) {
  
 	const pdfArrayBuffer = pdf.output("arraybuffer");
 	
+const pdfBlob = pdf.output('blob');
+  const arrayBuffer = await pdfBlob.arrayBuffer();
+  const base64 = btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)));
 
-
-	const pdfBase64 = btoa(String.fromCharCode(...new Uint8Array(pdfArrayBuffer)));
-
+	
   await fetch('/api/uploadAndEmail', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -6355,7 +6356,7 @@ async function generatePdfFromString(htmlString) {
       email: 'averonque09@gmail.com',
       name: 'Arthur',
       address: '123 Main St',
-      pdfBase64,
+      base64,
     }),
   });
 
