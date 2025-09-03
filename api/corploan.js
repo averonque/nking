@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   
   const prompt = `
 You are a legal document generator.
-Using the following JSON data, generate a professional Small Business Loan Agreement document.
+Using the following JSON data, generate a professional Corporate Loan Agreement document.
 JSON:
 ${JSON.stringify(req.body, null, 2)}
 
@@ -22,108 +22,142 @@ Guidelines:
 2. Make the font bigger so it can occupy a page
 3. Replace all variables "$REPLACE" with values from the JSON data if available if not make a placeholder values.
 
-Small Business Loan Agreement
-This Small Business Loan Agreement (“Agreement”) is entered into and made effective as of [Effective Date], by and between:
 
-Borrower: [Legal Business Name], a limited liability company (LLC) organized under the laws of [State of Formation], with principal business address at [Business Address] (“Borrower”).
+Corporate Loan Agreement
+This Corporate Loan Agreement (“Agreement”) is entered into as of [Effective Date] by and between:
 
-Lender: [Trust Name], a trust organized under applicable law, with principal address at [Trust Address] (“Lender”).
+Borrower: [Corporate Legal Name], a corporation duly organized under the laws of [State of Incorporation], with its principal place of business at [Business Address], EIN: [Tax ID / EIN].
 
-Article I. Definitions
-Section 1.01 “Loan” refers to the principal amount of USD $[Loan Amount] provided by Lender to Borrower under this Agreement.
+Lender: [Trust Name], a trust with its principal address at [Trust Address], represented by [Trustee Name], [Trustee Title].
 
-Section 1.02 “Interest-Free” means no interest shall accrue on the Loan.
+Article I – Definitions
+Section 1.01 Definitions Terms used in this Agreement shall have the meanings assigned to them in this Article or as otherwise defined throughout the Agreement.
 
-Section 1.03 “Authorized Signer” refers to [Signer’s Full Legal Name], acting in the capacity of [Signer’s Title], authorized via [Operating Agreement / Member Consent].
+Section 1.02 Interpretation Headings are for convenience only and shall not affect interpretation. Singular includes plural and vice versa.
 
-Section 1.04 “Trustee” refers to [Trustee Signing Name], acting as [Trustee Title] on behalf of the Lender.
+Article II – Borrower Identity and Authority
+Section 2.01 Corporate Status Borrower is a duly incorporated entity under the laws of [State of Incorporation], in good standing.
 
-Article II. Loan Terms
-Section 2.01 Loan Amount: The Lender agrees to loan the Borrower the principal sum of USD $[Loan Amount].
+Section 2.02 Authorized Signers The following individual is authorized to execute this Agreement on behalf of Borrower:
 
-Section 2.02 Interest: The Loan shall be interest-free.
+Name: [Signer’s Full Legal Name]
 
-Section 2.03 Term: The Loan shall have a term of [Term Length] months.
+Title: CEO
 
-Section 2.04 Repayment Schedule: Payments shall be made monthly, commencing on [First Payment Due Date].
+Section 2.03 Board Resolution Borrower shall provide a certified copy of a Board Resolution authorizing the execution of this Agreement.
 
-Section 2.05 Late Fee: A late fee of [Late Fee Amount or %] shall apply to any payment not received within [Grace Days] days of the due date.
+Section 2.04 Officer’s Certificate Borrower shall deliver an Officer’s Certificate confirming the authority of the signer and the accuracy of corporate records.
 
-Section 2.06 Prepayment: Borrower may prepay the Loan in whole or in part at any time without penalty.
+Article III – Loan Terms
+Section 3.01 Loan Amount Lender agrees to loan Borrower the principal sum of $[Loan Amount].
 
-Article III. Purpose and Use of Proceeds
-Section 3.01 The Borrower shall use the Loan proceeds exclusively for the following business purpose: [Business Purpose].
+Section 3.02 Interest Rate The loan shall bear interest at an annual rate of [Interest Rate]% calculated on a [monthly/annual] basis.
 
-Article IV. Collateral
-Section 4.01 The Loan is unsecured. No collateral shall be pledged.
+Section 3.03 Term The loan shall have a term of [Term] months/years, commencing on the Effective Date.
 
-Section 4.02 No UCC-1 filing shall be made in connection with this Loan.
+Section 3.04 Payment Schedule Borrower shall make monthly payments beginning on [First Payment Date].
 
-Article V. Personal Guarantees
-Section 5.01 No personal guarantees are required under this Agreement.
+Section 3.05 Late Fee A late fee of $[Late Fee] shall apply to any payment not received within [X] days of the due date.
 
-Article VI. Covenants
-Borrower agrees to the following covenants throughout the term of the Loan:
+Section 3.06 Prepayment Borrower may prepay the loan in whole or in part at any time without penalty.
 
-Section 6.01 Financial Reporting: Provide periodic financial reports upon request.
+Article IV – Loan Purpose and Restrictions
+Section 4.01 Purpose The loan proceeds shall be used exclusively for the following purpose:
 
-Section 6.02 Insurance: Maintain adequate liability insurance.
+[Describe Loan Purpose]
 
-Section 6.03 Debt Restrictions: Not incur additional debt without Lender’s written consent.
+Section 4.02 Restricted Uses Borrower shall not use loan proceeds for:
 
-Section 6.04 Distributions: Not make distributions exceeding [Threshold] without Lender’s consent.
+Payment of dividends
 
-Section 6.05 Collateral Integrity: Not sell or transfer any collateral (if applicable).
+Any unlawful activity
 
-Section 6.06 Legal Standing: Maintain good standing in its state of formation.
+Article V – Collateral
+Section 5.01 Secured Loan This loan is secured by the following collateral:
 
-Section 6.07 Compliance: Pay all taxes and comply with applicable laws and regulations.
+[Collateral Description]
 
-Article VII. Defaults and Remedies
-Section 7.01 Events of Default include:
+Section 5.02 UCC-1 Filing Borrower shall cooperate with Lender in filing a UCC-1 Financing Statement to perfect Lender’s security interest.
 
-Failure to make payment within [Grace Days] days of due date.
+Article VI – Guarantees
+Section 6.01 Guaranty Requirement Borrower shall provide a personal or corporate guaranty from [Guarantor Name], guaranteeing full repayment of the loan.
 
-Insolvency or bankruptcy of Borrower.
+Article VII – Financial and Operational Covenants
+Section 7.01 Financial Covenants Borrower shall:
 
-Material misrepresentation or false statements.
+Maintain a Debt Service Coverage Ratio of at least [X]
 
-Breach of any covenant in Article VI.
+Maintain Minimum Net Worth of $[X]
 
-Section 7.02 Remedies: Upon default, Lender may:
+Deliver audited financial statements annually
 
-Declare the entire Loan immediately due and payable.
+Provide quarterly profit & loss statements and balance sheets
 
-Pursue legal action to recover outstanding amounts.
+Section 7.02 Negative Covenants Borrower shall not:
 
-Exercise any other rights available under law.
+Incur additional debt exceeding $[X]
 
-Article VIII. Legal Provisions
-Section 8.01 Governing Law: This Agreement shall be governed by the laws of the State of [Governing Law State].
+Declare dividends exceeding $[X]
 
-Section 8.02 Dispute Resolution: Any disputes shall be resolved in court located in [Jurisdiction].
+Engage in mergers, acquisitions, or asset sales without Lender’s consent
 
-Section 8.03 Assignment: Neither party may assign this Agreement without prior written consent.
+Change control or ownership without prior notice
 
-Section 8.04 Electronic Signatures: This Agreement may be executed electronically and shall be deemed valid and enforceable.
+Section 7.03 Affirmative Covenants Borrower shall:
 
-Article IX. Execution
-Section 9.01 Effective Date: This Agreement shall be effective as of [Effective Date].
+Maintain adequate insurance coverage
 
-Section 9.02 Signatures:
+Pay all taxes and remain in good legal standing
 
-IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first written above.
+Maintain accurate books and records and allow Lender inspection rights
 
-Borrower: By: ___________________________ Name: [Signer’s Full Legal Name] Title: [Signer’s Title]
+Article VIII – Default and Remedies
+Section 8.01 Events of Default Default shall occur upon:
 
-Lender (Trust): By: ___________________________ Name: [Trustee Signing Name] Title: [Trustee Title]
+Failure to pay any amount due within [Grace Period] days
 
-Article X. Notary Acknowledgment
-State of [Governing Law State] County of ____________
+Bankruptcy or insolvency of Borrower
 
-On this ___ day of ____________, 20___, before me, the undersigned Notary Public, personally appeared [Signer’s Full Legal Name] and [Trustee Signing Name], known to me to be the persons whose names are subscribed to the foregoing instrument, and acknowledged that they executed the same for the purposes therein contained.
+False representations or warranties
 
-Notary Public Signature: ____________________ My Commission Expires: ____________________
+Breach of any covenant or obligation
+
+Section 8.02 Remedies Upon default, Lender may:
+
+Accelerate the loan and demand immediate repayment
+
+Enforce security interests
+
+Pursue legal action in accordance with governing law
+
+Article IX – Legal Provisions
+Section 9.01 Governing Law This Agreement shall be governed by the laws of the State of [Governing Law].
+
+Section 9.02 Dispute Resolution Any disputes shall be resolved in the courts of [Governing Law State].
+
+Section 9.03 Assignment Lender may assign its rights under this Agreement. Borrower may not assign without Lender’s written consent.
+
+Section 9.04 Electronic Signatures This Agreement may be executed electronically and shall be deemed valid and enforceable.
+
+Article X – Miscellaneous
+Section 10.01 Entire Agreement This Agreement constitutes the entire understanding between the parties and supersedes all prior agreements.
+
+Section 10.02 Amendments No amendment shall be valid unless in writing and signed by both parties.
+
+Section 10.03 Severability If any provision is found unenforceable, the remainder shall remain in full force.
+
+Section 10.04 Notices All notices shall be sent to the addresses listed above via certified mail or electronic delivery.
+
+Article XI – Execution
+Section 11.01 Effective Date This Agreement shall be effective as of [Effective Date].
+
+Section 11.02 Signatures IN WITNESS WHEREOF, the parties have executed this Agreement:
+
+Borrower Signature: ___________________________ Name: [Signer’s Full Legal Name] Title: CEO Date: ___________________
+
+Lender Signature: ___________________________ Name: [Trustee Name] Title: [Trustee Title] Date: ___________________
+
+Witness / Notary Block Subscribed and sworn before me on this ___ day of ____________, 20___ Notary Public: ___________________________ Commission No.: _________________________ My Commission Expires: ___________________
 
 If the array are empty dont include the sections. Make each Article occupy one page as possible. Make it lengthy.
 Arrange the content into sections and paragraphs properly. 
