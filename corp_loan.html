@@ -6373,7 +6373,7 @@ const formData = new FormData();
     formData.append('UPLOADCARE_STORE', 'auto');
     formData.append('metadata[subsystem]', 'uploader');
     formData.append('metadata[pet]', 'cat');
-    formData.append('file', pdfBlob, 'generated.pdf'); // 👈 name it here
+    formData.append('file', pdfBlob, `document-${Date.now()}.pdf`); // 👈 name it here
 
     // Upload via fetch
     try {
@@ -6384,11 +6384,9 @@ const formData = new FormData();
 
       const result = await response.json();
       console.log('Uploadcare response:', result);
-	  
+	  const downloadLink = "https://ucarecdn.com/"+result.file+`/document-${Date.now()}.pdf`;
   await sendEmail(downloadLink, 'Arthur', '123 Main St', 'averonque09@gmail.com');
-  alert('Email sent with PDF link!');
-
-
+ 
     } catch (err) {
       console.error('Upload failed:', err);
     }
@@ -6414,7 +6412,7 @@ const formData = new FormData();
     renderPage(1);
 
 	$("#spinnershow").css("display","none");
-	pdf.save(`document-${Date.now()}.pdf`);
+	//pdf.save(`document-${Date.now()}.pdf`);
 }
 
 
