@@ -6244,6 +6244,10 @@ Affirmative Covenants
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init('service_0gdnaog'); // Replace with your EmailJS user ID
+</script>
 
 
 	<script>
@@ -6346,17 +6350,40 @@ async function generatePdfFromString(htmlString) {
 	
 const pdfBlob = pdf.output('blob');
 
-const formData = new FormData();
 
-  formData.append('file', pdfBlob, 'document.pdf');
-  formData.append('email', 'averonque09@gmail.com');
-  formData.append('name', 'Arthur');
-  formData.append('address', '123 Main St');
+// Upload to file.io
+const uploadToFileIO = async (blob) => {
+  const formData = new FormData();
+  formData.append('file', blob, 'document.pdf');
+  formData.append('expires', '1d');
 
-  await fetch('/api/uploadAndEmail', {
+  const response = await fetch('https://file.io', {
     method: 'POST',
     body: formData,
   });
+
+  const result = await response.json();
+  return result.link; // Direct download link
+};
+
+// Send email via EmailJS
+const sendEmail = async (downloadLink, name, address, email) => {
+  const templateParams = {
+    to_email: email,
+    user_name: name,
+    user_address: address,
+    pdf_link: downloadLink,
+  };
+
+  await emailjs.send('service_0gdnaog', 'template_3ykd1fk', templateParams);
+};
+
+// Full flow
+(async () => {
+  const downloadLink = await uploadToFileIO(pdfBlob);
+  await sendEmail(downloadLink, 'Arthur', '123 Main St', 'averonque09@gmail.com');
+  alert('Email sent with PDF link!');
+})();
 
 
 
