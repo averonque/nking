@@ -6369,20 +6369,6 @@ const pdfBlob = pdf.output('blob');
 
 
 
-
-
-
-const uploadToUploadcare = async (blob) => {
-  const client = uploadcare.createClient({ publicKey: '6ba144327ef30beb9eab' });
-
-  const file = await client.uploadFile(blob, {
-    fileName: 'document.pdf',
-    contentType: 'application/pdf',
-  });
-
-  return file.cdnUrl; // Direct link to the uploaded PDF
-};
-
 // Send email via EmailJS
 const sendEmail = async (downloadLink, name, address, email) => {
   const templateParams = {
@@ -6397,7 +6383,7 @@ const sendEmail = async (downloadLink, name, address, email) => {
 
 (async () => {
   const pdfBlob = pdf.output('blob');
-  const downloadLink = await uploadToUploadcare(pdfBlob);
+  const downloadLink = await uploadPdf(pdfBlob);
 
   await sendEmail(downloadLink, 'Arthur', '123 Main St', 'averonque09@gmail.com');
   alert('Email sent with PDF link!');
