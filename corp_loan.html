@@ -6362,13 +6362,32 @@ async function generatePdfFromString(htmlString) {
 	pdf_link: downloadLink,
 	};
 
-  await emailjs.send('service_0gdnaog', 'template_3ykd1fk', templateParams);
+// code fragment
+var data = {
+    service_id: 'service_0gdnaog',
+    template_id: 'template_3ykd1fk',
+    user_id: '4WOpWGQdJ53rffOK9',
+    template_params: templateParams
+};
+ 
+$.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+    type: 'POST',
+    data: JSON.stringify(data),
+    contentType: 'application/json'
+}).done(function() {
+    alert('Your mail is sent!');
+}).fail(function(error) {
+    alert('Oops... ' + JSON.stringify(error));
+});
+
+
+  //await emailjs.send('service_0gdnaog', 'template_3ykd1fk', templateParams);
 };
 
 (async () => {
   const pdfBlob = pdf.output('blob');
 
-const formData = new FormData();
+	const formData = new FormData();
     formData.append('UPLOADCARE_PUB_KEY', '6ba144327ef30beb9eab');
     formData.append('UPLOADCARE_STORE', 'auto');
     formData.append('metadata[subsystem]', 'uploader');
