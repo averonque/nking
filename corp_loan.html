@@ -611,6 +611,72 @@
 <!--begin::Heading-->
 <div class="pb-10 pb-lg-15">
 <!--begin::Title-->
+<h2 class="fw-bold text-gray-900"> Your Information
+</h2>
+<!--end::Title-->
+<!--begin::Notice-->
+<div class="text-muted fw-semibold fs-6">
+</div>
+<!--end::Notice-->
+</div>
+<!--end::Heading-->
+
+
+
+<!--end::Input group-->
+<!--begin::Input group-->
+<div class="mb-10 fv-row">
+<!--begin::Label-->
+<label class="form-label mb-3">Full Name</label>
+<!--end::Label-->
+<!--begin::Input-->
+<input type="text" class="form-control form-control-lg form-control-solid" id="full_name" name="account_name" placeholder="" value="" />
+<!--end::Input-->
+</div>
+
+
+
+
+<!--end::Input group-->
+<!--begin::Input group-->
+<div class="mb-10 fv-row">
+<!--begin::Label-->
+<label class="form-label mb-3">Address</label>
+<!--end::Label-->
+<!--begin::Input-->
+<input type="text" class="form-control form-control-lg form-control-solid" id="address" name="account_name" placeholder="" value="" />
+<!--end::Input-->
+</div>
+
+
+
+<!--end::Input group-->
+<!--begin::Input group-->
+<div class="mb-10 fv-row">
+<!--begin::Label-->
+<label class="form-label mb-3">Email</label>
+<!--end::Label-->
+<!--begin::Input-->
+<input type="text" class="form-control form-control-lg form-control-solid" id="your_email" name="account_name" placeholder="" value="" />
+<!--end::Input-->
+</div>
+
+
+
+
+				
+					</div>
+					<!--end::Wrapper-->
+				</div>
+
+
+
+<div data-kt-stepper-element="content">
+<!--begin::Wrapper-->
+<div class="w-100">
+<!--begin::Heading-->
+<div class="pb-10 pb-lg-15">
+<!--begin::Title-->
 <h2 class="fw-bold text-gray-900"> Borrower Identity
 </h2>
 <!--end::Title-->
@@ -6278,6 +6344,25 @@ async function generatePdfFromString(htmlString) {
  
 	const pdfArrayBuffer = pdf.output("arraybuffer");
 	
+
+
+	const pdfBase64 = btoa(String.fromCharCode(...new Uint8Array(pdfArrayBuffer)));
+
+  await fetch('/api/uploadAndEmail', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: 'averonque09@gmail.com',
+      name: 'Arthur',
+      address: '123 Main St',
+      pdfBase64,
+    }),
+  });
+
+
+
+
+
     // Load with PDF.js
     const loadingTask = pdfjsLib.getDocument({ data: pdfArrayBuffer });
     pdfDoc = await loadingTask.promise;
