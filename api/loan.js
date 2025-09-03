@@ -22,189 +22,141 @@ Guidelines:
 2. Make the font bigger so it can occupy a page
 3. Replace all variables "$REPLACE" with values from the JSON data if available if not make a placeholder values.
 
-Scope & Goal
+Corporate Loan Agreement
+This Corporate Loan Agreement (“Agreement”) is entered into as of [Effective Date] by and between:
 
-A loan from the Trust (Lender) to a Corporation or Large Business (Borrower).
-Builder produces:
+Borrower: [Corporate Legal Name], a corporation duly organized under the laws of [State of Incorporation], with its principal place of business at [Business Address], EIN: [Tax ID / EIN].
 
-Loan Agreement (core contract)
+Lender: [Trust Name], a trust with its principal address at [Trust Address], represented by [Trustee Name], [Trustee Title].
 
-Auto-attached exhibits (depending on answers):
+Article I – Definitions
+Section 1.01 Definitions Terms used in this Agreement shall have the meanings assigned to them in this Article or as otherwise defined throughout the Agreement.
 
-Promissory Note (Exhibit A)
-Security Agreement (Exhibit B)
-Personal/Corporate Guarantees (Exhibit C)
-UCC-1 Financing Statement Info Sheet (Exhibit D)
-Collateral Schedule (Exhibit E)
-Board Resolution (Exhibit F) authorizing the loan
-Officer’s Certificate (Exhibit G) verifying authority & good standing
+Section 1.02 Interpretation Headings are for convenience only and shall not affect interpretation. Singular includes plural and vice versa.
 
-Footer reminder: “This document is for educational purposes only. It is not legal advice. Consult a licensed attorney or notary.”
+Article II – Borrower Identity and Authority
+Section 2.01 Corporate Status Borrower is a duly incorporated entity under the laws of [State of Incorporation], in good standing.
 
-1) Questions (form answers)
+Section 2.02 Authorized Signers The following individual is authorized to execute this Agreement on behalf of Borrower:
 
-A. Borrower Identity
-Entity type → Corporation / Large LLC / Other
-Corporate legal name → $REPLACE
-State of incorporation → $REPLACE
-Business address → $REPLACE
-Tax ID / EIN (optional)
+Name: [Signer’s Full Legal Name]
 
-B. Authorized Signers
-Signer’s full legal name → $REPLACE
-Signer’s corporate office → CEO, President, CFO, Treasurer, etc.
-Is a Board Resolution required?
-Yes → Exhibit F auto-attached
-No → skip
+Title: CEO
 
-C. Officer Certificate
-Officer’s Certificate required?
-Yes → Exhibit G auto-attached
-No → skip
+Section 2.03 Board Resolution Borrower shall provide a certified copy of a Board Resolution authorizing the execution of this Agreement.
 
-D. Lender (Trust) Info
-Trust name → $REPLACE
-Trust address → $REPLACE
-Trustee name & title → $REPLACE, $REPLACE
+Section 2.04 Officer’s Certificate Borrower shall deliver an Officer’s Certificate confirming the authority of the signer and the accuracy of corporate records.
 
-E. Loan Terms
-Loan amount → $REPLACE
-Interest rate (%) → $REPLACE (0% or fixed)
-Term (months/years) → $REPLACE
-Payment schedule → Monthly / Quarterly / Balloon
-First payment date → $REPLACE
-Late fee → $REPLACE
-Prepayment → Allowed anytime / Allowed with penalty %
+Article III – Loan Terms
+Section 3.01 Loan Amount Lender agrees to loan Borrower the principal sum of $[Loan Amount].
 
-F. Purpose
-Describe loan purpose → $REPLACE
-Restricted uses toggle (e.g., no dividends, no unlawful use)
+Section 3.02 Interest Rate The loan shall bear interest at an annual rate of [Interest Rate]% calculated on a [monthly/annual] basis.
 
-G. Collateral
-Secured? → Yes/No
-Collateral description → $REPLACE
-UCC-1 filing needed? → Yes/No
-Collateral schedule → Exhibit E
+Section 3.03 Term The loan shall have a term of [Term] months/years, commencing on the Effective Date.
 
-H. Guarantees
-Require corporate or personal guaranty?
-Yes → Exhibit C
-No
+Section 3.04 Payment Schedule Borrower shall make monthly payments beginning on [First Payment Date].
 
-I. Expanded Covenants
-Financial covenants (check any)
-Maintain Debt Service Coverage Ratio of X
-Maintain Minimum Net Worth of $X
-Deliver audited financials annually
-Quarterly management-prepared P&L and balance sheet
+Section 3.05 Late Fee A late fee of $[Late Fee] shall apply to any payment not received within [X] days of the due date.
 
-Negative covenants (check any)
-No additional debt > $X without consent
-No dividends / distributions > $X
-No mergers, acquisitions, or major asset sales
-No change of control without consent
+Section 3.06 Prepayment Borrower may prepay the loan in whole or in part at any time without penalty.
 
-Affirmative covenants (check any)
-Maintain insurance with lender named as loss payee
-Pay all taxes and remain in good standing
-Keep adequate books and allow inspection
+Article IV – Loan Purpose and Restrictions
+Section 4.01 Purpose The loan proceeds shall be used exclusively for the following purpose:
 
-J. Default & Remedies
-Grace period for missed payment → $REPLACE
-Other default triggers toggle (bankruptcy, false reps, covenant breaches)
+[Describe Loan Purpose]
 
-K. Legal Boilerplate
-Governing law (state) → $REPLACE
-Dispute resolution → Court / Arbitration
-Notices auto-pulled from addresses
-Assignment clause → Allowed / Not allowed
-E-sign clause → Include / Exclude
+Section 4.02 Restricted Uses Borrower shall not use loan proceeds for:
 
-L. Execution
-Effective date → today by default
-Witness/Notary block? → Yes/No
+Payment of dividends
 
-2) Clause Library
+Any unlawful activity
 
-A. Parties & Intro
-This Corporate Loan Agreement (“Agreement”) is made effective as of $REPLACE by and between $REPLACE (“Lender”) and $REPLACE, a corporation organized under the laws of $REPLACE, with its principal office at $REPLACE (“Borrower”).
+Article V – Collateral
+Section 5.01 Secured Loan This loan is secured by the following collateral:
 
-B. Loan Terms
-Loan Amount. Lender agrees to lend Borrower $REPLACE.
-Interest. $REPLACE
-Repayment. The Loan shall be repaid in $REPLACE installments beginning $REPLACE, continuing until $REPLACE months/years, unless accelerated upon default.
-Prepayment. $REPLACE
-Late Fee. A late fee of $REPLACE applies after $REPLACE days delinquent.
+[Collateral Description]
 
-C. Covenants (toggle inserts)
-Financial covenants: Net worth, ratios, audited financials, etc.
-Negative covenants: No excess debt, dividends, M&A, change of control.
-Affirmative covenants: Insurance, taxes, good standing, inspections.
+Section 5.02 UCC-1 Filing Borrower shall cooperate with Lender in filing a UCC-1 Financing Statement to perfect Lender’s security interest.
 
-D. Security (if collateral)
-Borrower grants Lender a first-priority security interest in the Collateral described in Exhibit E. Borrower agrees to execute all documents necessary to perfect this interest, including UCC-1 filings.
+Article VI – Guarantees
+Section 6.01 Guaranty Requirement Borrower shall provide a personal or corporate guaranty from [Guarantor Name], guaranteeing full repayment of the loan.
 
-E. Guarantees
-Guaranty. As additional assurance, $REPLACE guarantees full repayment of Borrower’s obligations. See Exhibit C.
+Article VII – Financial and Operational Covenants
+Section 7.01 Financial Covenants Borrower shall:
 
-F. Defaults & Remedies
-Events of Default include:
+Maintain a Debt Service Coverage Ratio of at least [X]
 
-Nonpayment after $REPLACE days,
+Maintain Minimum Net Worth of $[X]
 
-Insolvency or bankruptcy,
+Deliver audited financial statements annually
 
-Breach of covenant or representation,
+Provide quarterly profit & loss statements and balance sheets
 
-Unauthorized transfer or merger.
+Section 7.02 Negative Covenants Borrower shall not:
 
-Upon Default, Lender may accelerate all amounts due, enforce security interests, collect collateral, and seek legal remedies including attorney’s fees.
+Incur additional debt exceeding $[X]
 
-G. Miscellaneous
-Governing law / venue clause
-Arbitration option
-Notices clause
-Assignment clause
-Entire Agreement, Amendments, Counterparts, E-signatures
-Usury savings clause
+Declare dividends exceeding $[X]
 
-3) Exhibits
+Engage in mergers, acquisitions, or asset sales without Lender’s consent
 
-Exhibit A – Promissory Note (corporate borrower format)
-Exhibit B – Security Agreement (if collateral pledged)
-Exhibit C – Guaranty (if selected, could be corporate subsidiary or personal owners)
-Exhibit D – UCC-1 Info Sheet
-Exhibit E – Collateral Schedule
-Exhibit F – Board Resolution
+Change control or ownership without prior notice
 
-Approves borrowing
+Section 7.03 Affirmative Covenants Borrower shall:
 
-Names officer authorized to sign
+Maintain adequate insurance coverage
 
-Exhibit G – Officer’s Certificate
+Pay all taxes and remain in good legal standing
 
-Certifies borrower is in good standing
+Maintain accurate books and records and allow Lender inspection rights
 
-Attaches Articles of Incorporation and Bylaws excerpts
+Article VIII – Default and Remedies
+Section 8.01 Events of Default Default shall occur upon:
 
-Confirms board resolution validity
+Failure to pay any amount due within [Grace Period] days
 
-4) Signatures
+Bankruptcy or insolvency of Borrower
 
-IN WITNESS WHEREOF, the parties execute this Agreement as of $REPLACE.
+False representations or warranties
 
-Borrower: $REPLACE
-By: ________________________
-Name: $REPLACE
-Title: $REPLACE
+Breach of any covenant or obligation
 
-Lender: $REPLACE
-By: ________________________
-Name: $REPLACE
-Title: $REPLACE
+Section 8.02 Remedies Upon default, Lender may:
 
+Accelerate the loan and demand immediate repayment
 
-Optional Notary block same as Small Business version.
+Enforce security interests
+
+Pursue legal action in accordance with governing law
+
+Article IX – Legal Provisions
+Section 9.01 Governing Law This Agreement shall be governed by the laws of the State of [Governing Law].
+
+Section 9.02 Dispute Resolution Any disputes shall be resolved in the courts of [Governing Law State].
+
+Section 9.03 Assignment Lender may assign its rights under this Agreement. Borrower may not assign without Lender’s written consent.
+
+Section 9.04 Electronic Signatures This Agreement may be executed electronically and shall be deemed valid and enforceable.
+
+Article X – Miscellaneous
+Section 10.01 Entire Agreement This Agreement constitutes the entire understanding between the parties and supersedes all prior agreements.
+
+Section 10.02 Amendments No amendment shall be valid unless in writing and signed by both parties.
+
+Section 10.03 Severability If any provision is found unenforceable, the remainder shall remain in full force.
+
+Section 10.04 Notices All notices shall be sent to the addresses listed above via certified mail or electronic delivery.
+
+Article XI – Execution
+Section 11.01 Effective Date This Agreement shall be effective as of [Effective Date].
+
+Section 11.02 Signatures IN WITNESS WHEREOF, the parties have executed this Agreement:
+
+Borrower Signature: ___________________________ Name: [Signer’s Full Legal Name] Title: CEO Date: ___________________
+
+Lender Signature: ___________________________ Name: [Trustee Name] Title: [Trustee Title] Date: ___________________
+
+Witness / Notary Block Subscribed and sworn before me on this ___ day of ____________, 20___ Notary Public: ___________________________ Commission No.: _________________________ My Commission Expires: ___________________
 
 If the array are empty dont include the sections. Make each Article occupy one page as possible. Make it lengthy.
 Arrange the content into sections and paragraphs properly. 

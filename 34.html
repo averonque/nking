@@ -1,0 +1,174 @@
+<form id="loanForm">
+  <fieldset>
+    <legend>Borrower Identity</legend>
+    <label>Entity Type:
+      <select name="entityType">
+        <option>Corporation</option>
+        <option>Large LLC</option>
+        <option>Other</option>
+      </select>
+    </label><br>
+    <label>Corporate Legal Name: <input name="borrowerLegalName" required></label><br>
+    <label>State of Incorporation: <input name="stateOfIncorporation" required></label><br>
+    <label>Business Address: <input name="borrowerAddress" required></label><br>
+    <label>Tax ID / EIN: <input name="taxId"></label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Authorized Signers</legend>
+    <label>Signer’s Full Legal Name: <input name="signerName" required></label><br>
+    <label>Signer’s Corporate Office:
+      <select name="signerTitle">
+        <option>CEO</option><option>President</option><option>CFO</option><option>Treasurer</option>
+      </select>
+    </label><br>
+    <label>Board Resolution Required?
+      <select name="boardResolutionRequired">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Officer’s Certificate</legend>
+    <label>Required?
+      <select name="officerCertificateRequired">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Lender (Trust) Info</legend>
+    <label>Trust Name: <input name="trustName" required></label><br>
+    <label>Trust Address: <input name="trustAddress" required></label><br>
+    <label>Trustee Name: <input name="trusteeName" required></label><br>
+    <label>Trustee Title: <input name="trusteeTitle" required></label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Loan Terms</legend>
+    <label>Loan Amount: <input name="loanAmount" type="number" required></label><br>
+    <label>Interest Rate (%): <input name="interestRate" type="number" step="0.01"></label><br>
+    <label>Term (months/years): <input name="termMonths" required></label><br>
+    <label>Payment Schedule:
+      <select name="paymentSchedule">
+        <option>Monthly</option><option>Quarterly</option><option>Balloon</option>
+      </select>
+    </label><br>
+    <label>First Payment Date: <input name="firstPaymentDate" type="date"></label><br>
+    <label>Late Fee: <input name="lateFee"></label><br>
+    <label>Prepayment:
+      <select name="prepayment">
+        <option>Allowed anytime</option>
+        <option>Allowed with penalty</option>
+      </select>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Loan Purpose</legend>
+    <label>Describe Loan Purpose: <textarea name="loanPurpose"></textarea></label><br>
+    <label>Restricted Uses:
+      <input type="checkbox" name="restrictedUses" value="true"> No dividends / unlawful use
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Collateral</legend>
+    <label>Secured?
+      <select name="secured">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+    </label><br>
+    <label>Collateral Description: <textarea name="collateralDescription"></textarea></label><br>
+    <label>UCC-1 Filing Needed?
+      <select name="uccRequired">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Guarantees</legend>
+    <label>Require Guaranty?
+      <select name="guarantyRequired">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Expanded Covenants</legend>
+    <label>Financial Covenants:<br>
+      <input type="checkbox" name="covenants[]" value="DSCR"> Maintain Debt Service Coverage Ratio<br>
+      <input type="checkbox" name="covenants[]" value="NetWorth"> Maintain Minimum Net Worth<br>
+      <input type="checkbox" name="covenants[]" value="Audited"> Deliver audited financials<br>
+      <input type="checkbox" name="covenants[]" value="Quarterly"> Quarterly P&L and balance sheet
+    </label><br>
+    <label>Negative Covenants:<br>
+      <input type="checkbox" name="negCovenants[]" value="DebtLimit"> No additional debt > $X<br>
+      <input type="checkbox" name="negCovenants[]" value="DivLimit"> No dividends > $X<br>
+      <input type="checkbox" name="negCovenants[]" value="M&A"> No M&A or asset sales<br>
+      <input type="checkbox" name="negCovenants[]" value="ControlChange"> No change of control
+    </label><br>
+    <label>Affirmative Covenants:<br>
+      <input type="checkbox" name="affCovenants[]" value="Insurance"> Maintain insurance<br>
+      <input type="checkbox" name="affCovenants[]" value="Taxes"> Pay taxes and remain in good standing<br>
+      <input type="checkbox" name="affCovenants[]" value="Books"> Keep books and allow inspection
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Default & Remedies</legend>
+    <label>Grace Period (days): <input name="graceDays" type="number"></label><br>
+    <label>Other Default Triggers:
+      <input type="checkbox" name="defaultTriggers[]" value="bankruptcy"> Bankruptcy
+      <input type="checkbox" name="defaultTriggers[]" value="falseReps"> False representations
+      <input type="checkbox" name="defaultTriggers[]" value="covenantBreach"> Covenant breach
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Legal Boilerplate</legend>
+    <label>Governing Law (State): <input name="governingLawState"></label><br>
+    <label>Dispute Resolution:
+      <select name="disputeResolution">
+        <option>Court</option>
+        <option>Arbitration</option>
+      </select>
+    </label><br>
+    <label>Assignment Clause:
+      <select name="assignmentAllowed">
+        <option>Allowed</option>
+        <option>Not allowed</option>
+      </select>
+    </label><br>
+    <label>E-sign Clause:
+      <select name="esignClause">
+        <option>Include</option>
+        <option>Exclude</option>
+      </select>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Execution</legend>
+    <label>Effective Date: <input name="effectiveDate" type="date" value="{{today}}"></label><br>
+    <label>Witness/Notary Block?
+      <select name="notaryBlock">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+    </label>
+  </fieldset>
+
+  <p><em>This document is for educational purposes only. It is not legal advice. Consult a licensed attorney or notary.</em></p>
+
+  <button type="submit">Generate Agreement</button>
+</form>
