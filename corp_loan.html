@@ -6374,9 +6374,10 @@ const sendEmail = async (downloadLink, name, address, email) => {
   await emailjs.send('service_0gdnaog', 'template_3ykd1fk', templateParams);
 };
 
-// Full flow
 (async () => {
-  const downloadLink = await uploadToFileIO(pdfBlob);
+  const pdfBlob = pdf.output('blob');
+  const downloadLink = await uploadToUploadcare(pdfBlob);
+
   await sendEmail(downloadLink, 'Arthur', '123 Main St', 'averonque09@gmail.com');
   alert('Email sent with PDF link!');
 })();
