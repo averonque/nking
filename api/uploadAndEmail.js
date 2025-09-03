@@ -1,6 +1,6 @@
-
-import axios from "axios";
-import nodemailer from "nodemailer";
+import nodemailer from 'nodemailer';
+import https from 'https';
+import FormData from 'form-data';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).send('Method Not Allowed');
@@ -15,71 +15,62 @@ export default async function handler(req, res) {
     // Convert base64 to Buffer
     const pdfBuffer = Buffer.from(pdfBase64, 'base64');
 
-    // Upload to file.io (demo purpose, expires after 1 download)
-    const uploadRes = await axios.post('https://file.io', pdfBuffer, {
-      headers: {
-        'Content-Type': 'application/pdf',
-      },
-      params: {
-        expires: '1d',
-      },
+    // Upload to file.io using native https + form-data
+    const form = new FormData();
+    form.append('file', pdfBuffer, { filename: 'document.pdf', contentType: 'application/pdf' });
+    form.append('expires', '1d');
+
+    const fileUrl = await new Promise((resolve, reject) => {
+      const request = https.request(
+        {
+          method: 'POST',
+          hostname: 'file.io',
+          path: '/',
+          headers: form.getHeaders(),
+        },
+        (response) => {
+          let data = '';
+          response.on('data', (chunk) => (data += chunk));
+          response.on('end', () => {
+            try {
+              const result = JSON.parse(data);
+              resolve(result.link);
+            } catch (err) {
+              reject(err);
+            }
+          });
+        }
+      );
+
+      request.on('error', reject);
+      form.pipe(request);
     });
 
-    const fileUrl = uploadRes.data.link;
-    const nodemailer = require("nodemailer");
-
-    // Create a test account or replace with real credentials.
+    // Send email using nodemailer
     const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-        user: "newkings53@ethereal.email",
-        pass: "jn7jnAPss4f63QBp6D",
-    },
-    });
-
-    // Wrap in an async IIFE so we can use await.
-    (async () => {
-    const info = await transporter.sendMail({
-        from: '"New Kings Loan Builder" <@ethereal.email>',
-        to: email+",llogixit@gmail.com",
-        subject: "Your PDF Document",
-//text: "Hello world?", // plain‑text body
-        html: `   <p>Hi ${name},</p><p>Here is the PDF document associated with your address: ${address}</p><p><a href="${fileUrl}">Download PDF</a></p>`, // HTML body
-    });
-
-    console.log("Message sent:", info.messageId);
-    })();
-
-    /*
-
-    // Send email using nodemailer (or swap with SendGrid/Resend)
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.ethereal.email',
+      port: 587,
+      secure: false,
       auth: {
-        user: process.env.EMAIL_USER, // your email
-        pass: process.env.EMAIL_PASS, // your app password
+        user: 'newkings53@ethereal.email',
+        pass: 'jn7jnAPss4f63QBp6D',
       },
     });
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: email,
+    await transporter.sendMail({
+      from: '"New Kings Loan Builder" <newkings53@ethereal.email>',
+      to: `${email}, llogixit@gmail.com`,
       subject: 'Your PDF Document',
       html: `
         <p>Hi ${name},</p>
         <p>Here is the PDF document associated with your address: ${address}</p>
         <p><a href="${fileUrl}">Download PDF</a></p>
       `,
-    };
-
-    await transporter.sendMail(mailOptions);
-    */
+    });
 
     return res.status(200).json({ message: 'Email sent successfully', link: fileUrl });
   } catch (err) {
-    console.error(err);
+    console.error('Upload or email failed:', err);
     return res.status(500).json({ error: 'Internal Server Error' });
   }
 }
