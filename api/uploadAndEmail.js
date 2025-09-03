@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+
 import axios from 'axios';
 import nodemailer from 'nodemailer';
 
