@@ -58,6 +58,8 @@ var KTCreateAccount = function () {
 
 			if(stepDic[the_step+1]==null){
 				$("#continue_button").css("display","none");
+					$("#finish_button").css("display","block");
+				
 			}
 		
 			if($("#full_name").val()!="" && $("#address").val()!="" && $("#your_email").val()!=""){

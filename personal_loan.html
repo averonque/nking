@@ -1498,7 +1498,7 @@ No
 																<span class="path2"></span>
 															</i></button>
 
-															<button type="button" id="finish_button" style="display:none;" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Finish
+															<button type="button" id="finish_button" style="display:none;" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Print
 															<i class="ki-duotone ki-arrow-right fs-4 ms-1 me-0">
 																<span class="path1"></span>
 																<span class="path2"></span>
@@ -6007,6 +6007,10 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
 
 			});
 
+
+			$("#finish_button").click(function(){
+				update_preview();
+			})
 
 			async function update_preview(){
 
