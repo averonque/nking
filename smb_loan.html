@@ -2070,9 +2070,9 @@
 														</div>
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
-														<div id="continue_button" >
-															<button type="button" class="btn btn-lg btn-primary me-3" data-kt-stepper-action="submit">
-																<span class="indicator-label">Submit 
+														<div  >
+															<button type="button" class="btn btn-lg btn-primary me-3" id="finish_button" data-kt-stepper-action="submit">
+																<span class="indicator-label">Print
 																<i class="ki-duotone ki-arrow-right fs-3 ms-2 me-0">
 																	<span class="path1"></span>
 																	<span class="path2"></span>
@@ -2080,7 +2080,7 @@
 																<span class="indicator-progress">Please wait... 
 																<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 															</button>
-															<button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Continue 
+															<button type="button" class="btn btn-lg btn-primary" id="continue_button" data-kt-stepper-action="next">Continue 
 															<i class="ki-duotone ki-arrow-right fs-4 ms-1 me-0">
 																<span class="path1"></span>
 																<span class="path2"></span>
@@ -6435,6 +6435,9 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
 			});
 
 
+	$("#finish_button").click(function(){
+				update_preview();
+			})
 
 	
 			async function update_preview(){

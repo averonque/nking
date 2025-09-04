@@ -16,7 +16,7 @@ var KTCreateAccount = function () {
 	var stepperObj;
 	var validations = [];
 
-	var stepDic = {1:{next:2},2:{next:3, prev:1},3:{yes:8,next:4,prev:2},4:{prev:3,next:5},5:{prev:3,next:6},6:{prev:5,next:7},7:{prev:6,next:8},8:{prev:7,next:9},9:{prev:8,next:10},10:{prev:9,next:11},11:{prev:10,next:12}};
+	var stepDic = {1:{next:2},2:{next:3, prev:1},3:{yes:8,next:4,prev:2},4:{prev:3,next:5},5:{prev:3,next:6},6:{prev:5,next:7},7:{prev:6,next:8},8:{prev:7,next:9},9:{prev:8,next:10},10:{prev:9,next:11},11:{prev:10,next:12},12:{prev:10,next:13}};
 
 	let totalSteps = 11;   // total number of steps
 	let currentStep = 0;  // start at step 0
@@ -133,6 +133,7 @@ var KTCreateAccount = function () {
 	}
 
 	var handleForm = function() {
+        /*
 		formSubmitButton.addEventListener('click', function (e) {
 			// Validate form before change stepper step
 			var validator = validations[3]; // get validator for last form
@@ -193,6 +194,7 @@ var KTCreateAccount = function () {
             // Revalidate the field when an option is chosen
             validations[2].revalidateField('business_type');
         });
+        */
 	}
 
 	var initValidation = function () {
