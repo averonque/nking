@@ -20,8 +20,7 @@ ${JSON.stringify(req.body, null, 2)}
 Guidelines: 
 1. Use this format but you can adjust like inserting any paragraph or section to implement guidelines:
 2. Make the font bigger so it can occupy a page
-3. Replace all variables "$REPLACE" with values from the JSON data if available if not make a placeholder values.
-
+3. Calculate the monthly payment based on the JSON data repayment_duration. Update the monthly payment
 
 PERSONAL LOAN AGREEMENT
 This Personal Loan Agreement ("Agreement") is made and entered into on [Date of Agreement] by and between:
@@ -47,8 +46,7 @@ Section 2.2 – Repayment Duration
 The Loan shall be repaid over a period of: ☐ 12 months ☐ 24 months ☐ 36 months ☐ 48 months ☐ Other: [Insert Duration]
 
 Section 2.3 – Monthly Payment Calculation
-If repaid monthly, the Borrower shall pay $[Monthly Payment] per month. Example: A loan of $10,000 at 20% annual interest repaid over 12 months results in a total repayment of $12,000, with monthly payments of $1,000.
-
+If repaid monthly, the Borrower shall pay $[Monthly Payment] per month.
 ARTICLE III: COLLATERAL
 Section 3.1 – Security
 ☐ The Loan is secured by collateral ☐ The Loan is unsecured
