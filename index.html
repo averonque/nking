@@ -1853,8 +1853,8 @@ Staggered
 														<!--end::Wrapper-->
 														<!--begin::Wrapper-->
 														<div>
-															<button type="button" class="btn btn-lg btn-primary me-3" data-kt-stepper-action="submit">
-																<span class="indicator-label">Submit 
+															<button type="button" class="btn btn-lg btn-primary me-3" data-kt-stepper-action="submit" id="finish_button" >
+																<span class="indicator-label">Print
 																<i class="ki-duotone ki-arrow-right fs-3 ms-2 me-0">
 																	<span class="path1"></span>
 																	<span class="path2"></span>
@@ -1862,7 +1862,7 @@ Staggered
 																<span class="indicator-progress">Please wait... 
 																<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 															</button>
-															<button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Continue 
+															<button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next" id="continue_button">Continue 
 															<i class="ki-duotone ki-arrow-right fs-4 ms-1 me-0">
 																<span class="path1"></span>
 																<span class="path2"></span>
@@ -6379,6 +6379,8 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
 					}
 					other_assets.push(dic);
 				}
+
+				console.log(other_assets);
 			
 
 				for(var i=0; i<schedule_a_assets_count; i++){

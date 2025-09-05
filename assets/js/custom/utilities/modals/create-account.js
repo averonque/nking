@@ -15,10 +15,10 @@ var KTCreateAccount = function () {
 	// Variables
 	var stepperObj;
 	var validations = [];
-
+	var provided = false;
 	var stepDic = {1:{next:2},2:{next:3},3:{yes:8,next:4,kw:"isMarried"},4:{prev:3,next:5},5:{next:6,prev:4},6:{next:7,prev:5},7:{prev:6,next:8},8:{prev:7,next:8}};
 
-	  let totalSteps = 8;   // total number of steps
+	  let totalSteps = 9;   // total number of steps
   let currentStep = 0;  // start at step 0
 
   function updateProgress() {
@@ -55,31 +55,27 @@ var KTCreateAccount = function () {
 			var indx = stepperObj.getCurrentStepIndex();
 			the_step = indx;
 			
-			if (stepDic[indx].hasOwnProperty("kw")) {
-
-			let selected = $("input[name='"+stepDic[indx].kw+"']:checked").val();
 			
-			if(selected=="Yes"){
-				stepper.goTo(stepDic[indx].yes);
+						if(stepDic[the_step+1]==null){
+							$("#continue_button").css("display","none");
+								$("#finish_button").css("display","block");
+							
+						}
+					
+						if($("#full_name").val()!="" && $("#address").val()!="" && $("#your_email").val()!=""){
+							provided = true;
+						}
 			
-			}
-			else{
-				stepper.goTo(stepDic[indx].next);
-			}
-		}
-			else{
-				stepper.goTo(stepDic[indx].next);
-			}
-			
-			nextStep();
-		//	stepper.goNext();
-			KTUtil.scrollTop();
-
-
-			// Validate form before change stepper step
-			var validator = validations[stepper.getCurrentStepIndex() - 1]; // get validator for currnt step
-			console.log(validator);
-			
+						if(provided){
+						
+							stepper.goTo(stepDic[indx].next);
+								nextStep();
+					//	stepper.goNext();
+						KTUtil.scrollTop();
+						}
+						
+					
+		
 			/*
 			if (validator) {
 				validator.validate().then(function (status) {

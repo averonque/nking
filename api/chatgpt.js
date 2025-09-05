@@ -13,10 +13,14 @@ export default async function handler(req, res) {
   
   const prompt = `
 You are a legal document generator.
-Using the following JSON data, generate a professional Revocable Living Trust document. Guidelines: 
-1. Add Other signers from the array. Add a blank line where they can sign.  
-2. Use this format but you can adjust like inserting any paragraph or section to implement guidelines:
-3. Make the font bigger so it can occupy a page
+Using the following JSON data, generate a professional Revocable Living Trust document.
+JSON:
+${JSON.stringify(req.body, null, 2)}
+
+Guidelines: 
+1. Use this format but you can adjust like inserting any paragraph or section to implement guidelines:
+2. Make the font bigger so it can occupy a page
+3. Replace all variables "$REPLACE" with values from the JSON data if available if not make a placeholder values.
 
 
 Revocable Living Trust Document
