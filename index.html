@@ -6263,7 +6263,7 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
 						var lbl = itm.toLowerCase().replace(/\s+/g, "_");
 						var app = "";
 
-						app = '<input type="text" class="form-control form-control-lg form-control-solid"  id="other_assets_'+lbl+'_'+assets_count+'" placeholder="" value="" />';
+						app = '<input type="text" class="form-control form-control-lg form-control-solid"  id="other_assets_'+lbl+'_'+other_assets_count+'" placeholder="" value="" />';
 
 						htm+='<div class="mb-10 fv-row"><!--begin::Label--><label class="form-label mb-3">'+itm+'</label><!--end::Label-->'+app+'</div>';
 
@@ -6306,7 +6306,7 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
 						var lbl = itm.toLowerCase().replace(/\s+/g, "_");
 						var app = "";
 
-						app = '<input type="text" class="form-control form-control-lg form-control-solid"  id="schedule_a_assets_'+lbl+'_'+assets_count+'" placeholder="" value="" />';
+						app = '<input type="text" class="form-control form-control-lg form-control-solid"  id="schedule_a_assets_'+lbl+'_'+schedule_a_assets_count+'" placeholder="" value="" />';
 
 						htm+='<div class="mb-10 fv-row"><!--begin::Label--><label class="form-label mb-3">'+itm+'</label><!--end::Label-->'+app+'</div>';
 
@@ -6363,30 +6363,48 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
 
 
 				for(var i=0; i<assets_count; i++){
+					try{
 					var dic = {};
+
 					for(const itm of assets_items){
+					
 						var lbl = itm.toLowerCase().replace(/\s+/g, "_");
+					
 						dic[lbl] = $("#assets_"+lbl+"_"+i).val();
 
 					}
 
 					assets.push(dic);
+				}catch{
 
 				}
 
+				}
+
+
+				console.log(assets);
+
 				for(var i=0; i<other_assets_count; i++){
+					try{
 					var dic = {};
 					for(const itm of other_assets_items){
+						
 						var lbl = itm.toLowerCase().replace(/\s+/g, "_");
 						dic[lbl] = $("#other_assets_"+lbl+"_"+i).val();
 					}
+
+
 					other_assets.push(dic);
 				}
+				catch{
 
+				}
+				}
+	
 				console.log(other_assets);
-			
-
+				
 				for(var i=0; i<schedule_a_assets_count; i++){
+					try{
 					var dic = {};
 					for(const itm of schedule_a_assets_items){
 						var lbl = itm.toLowerCase().replace(/\s+/g, "_");
@@ -6394,8 +6412,14 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
 					}
 					schedule_a_assets.push(dic);
 				}
-			
-			
+				catch{
+
+				}
+				}
+
+
+		
+				
 				for(var i=0; i<grantor_count; i++){
 					var dic = {};
 					for(const itm of items){
