@@ -812,6 +812,31 @@ Fixed % per year
 </div>
 
 
+<div class="mb-10 fv-row">
+<!--begin::Label-->
+<div class="fv-row mb-9 fv-plugins-icon-container fv-plugins-bootstrap5-row-valid">
+<!--begin::Label-->
+<label class="fs-6 fw-semibold mb-2 required">Repayment Duration (months):</label>
+<!--end::Label-->
+<!--begin::Input-->
+	<select name="state" id="repayment_duration" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
+<option selected="selected" value="12 months">12 months</option>
+<option value="24 months">24 months</option>
+<option value="36 months">36 months</option>
+<option value="48 months">48 months</option>
+</select>
+<!--end::Input-->
+<div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+	</div>
+	</div>
+						
+</div>
+
+
+
+
+
+
 
 <div class="mb-10 fv-row">
 <!--begin::Label-->
@@ -6032,8 +6057,8 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
 				const enter_rate_if_fixed = $("#enter_rate_if_fixed").val();
 				const repayment_schedule= $("#repayment_schedule").val();
 				const lump_sum_specify_date = $("#lump_sum_specify_date").val();
-
-				const loan_terms = {loan_amount: loan_amount, interest_rate:interest_rate, enter_rate_if_fixed:enter_rate_if_fixed,repayment_schedule:repayment_schedule,lump_sum_specify_date:lump_sum_specify_date};
+				const repayment_duration = $("#repayment_duration").val();
+				const loan_terms = {loan_amount: loan_amount, interest_rate:interest_rate, enter_rate_if_fixed:enter_rate_if_fixed,repayment_schedule:repayment_schedule,lump_sum_specify_date:lump_sum_specify_date,repayment_duration: repayment_duration};
 
 
 				var purpose_options = $('input[type="checkbox"][name="purpose_options"]:checked');

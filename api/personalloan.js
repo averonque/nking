@@ -24,109 +24,65 @@ Guidelines:
 
 
 PERSONAL LOAN AGREEMENT
-This Personal Loan Agreement (“Agreement”) is entered into on [Date of Agreement] by and between:
+This Personal Loan Agreement ("Agreement") is made and entered into on [Date of Agreement] by and between:
 
-Lender: [Trust Name] Borrower: [Borrower's Full Legal Name]
+Trust Name (Lender): [Insert Trust Name] Borrower’s Full Legal Name: [Insert Borrower Name]
 
-Collectively referred to as the “Parties.”
+Collectively referred to as the "Parties."
 
-ARTICLE I: DEFINITIONS
-1.1 “Loan” refers to the principal amount lent by the Lender to the Borrower under this Agreement. 1.2 “Collateral” means any asset pledged by the Borrower to secure the Loan. 1.3 “Default” means any failure by the Borrower to meet the obligations set forth herein.
+ARTICLE I: LOAN TERMS
+Section 1.1 – Loan Amount
+The Lender agrees to loan the Borrower the principal sum of $[Loan Amount] ("Loan").
 
-ARTICLE II: LOAN TERMS
-Section 2.1: Principal Amount
-The Lender agrees to loan the Borrower the sum of $[Loan Amount].
+Section 1.2 – Interest Rate
+The Loan shall bear interest as follows: ☐ 0% (Interest-Free) ☐ Fixed interest rate of [Insert Rate]% per annum
 
-Section 2.2: Interest
-The Loan shall bear interest as follows:
+Interest shall be calculated on the basis of a 12-month calendar year unless otherwise specified.
 
-☐ Interest-Free (0%)
+ARTICLE II: REPAYMENT TERMS
+Section 2.1 – Repayment Schedule
+The Borrower agrees to repay the Loan according to the following schedule: ☐ Monthly payments ☐ Quarterly payments ☐ Lump sum payment due on [Insert Lump Sum Date]
 
-☐ Fixed Interest Rate of [Fixed %] per annum
+Section 2.2 – Repayment Duration
+The Loan shall be repaid over a period of: ☐ 12 months ☐ 24 months ☐ 36 months ☐ 48 months ☐ Other: [Insert Duration]
 
-Interest shall accrue daily and be calculated on the basis of a 365-day year.
-
-Section 2.3: Repayment Schedule
-The Borrower shall repay the Loan as follows:
-
-☐ Lump Sum Payment on [dd/mm/yyyy]
-
-☐ Installments (customizable clause can be added here)
-
-All payments shall be made in U.S. Dollars unless otherwise agreed in writing.
+Section 2.3 – Monthly Payment Calculation
+If repaid monthly, the Borrower shall pay $[Monthly Payment] per month. Example: A loan of $10,000 at 20% annual interest repaid over 12 months results in a total repayment of $12,000, with monthly payments of $1,000.
 
 ARTICLE III: COLLATERAL
-Section 3.1: Security
-☐ This Loan is secured by collateral described as: [Collateral Description]
+Section 3.1 – Security
+☐ The Loan is secured by collateral ☐ The Loan is unsecured
 
-☐ This Loan is unsecured.
-
-Section 3.2: Rights to Collateral
-In the event of Default, the Lender shall have the right to seize, liquidate, or otherwise dispose of the Collateral in accordance with applicable law.
+Section 3.2 – Collateral Description
+If secured, the Borrower pledges the following collateral: [Insert Collateral Description]
 
 ARTICLE IV: DEFAULT AND REMEDIES
-Section 4.1: Events of Default
-Default shall include but not be limited to:
+Section 4.1 – Default Definition
+The Borrower shall be considered in default if any scheduled payment is missed or if any term of this Agreement is violated.
 
-Failure to pay any amount due
+Section 4.2 – Penalty for Default
+☐ A penalty shall apply ☐ No penalty shall apply
 
-Misrepresentation of facts
+If applicable, the penalty shall be [Insert Penalty Rate]% of the outstanding balance per month until the default is cured.
 
-Insolvency or bankruptcy of the Borrower
+ARTICLE V: GOVERNING LAW
+This Agreement shall be governed by and construed in accordance with the laws of the State of [Insert State], without regard to its conflict of law principles.
 
-Section 4.2: Penalties
-☐ Upon Default, a penalty of [Penalty Rate]% of the outstanding balance shall apply.
+ARTICLE VI: MISCELLANEOUS
+Section 6.1 – Entire Agreement
+This document constitutes the entire agreement between the Parties and supersedes all prior discussions, negotiations, and agreements.
 
-☐ No penalty shall apply.
+Section 6.2 – Amendments
+Any amendments to this Agreement must be made in writing and signed by both Parties.
 
-Section 4.3: Remedies
-The Lender may pursue any or all of the following remedies:
-
-Acceleration of the Loan
-
-Legal action for recovery
-
-Enforcement of Collateral rights
-
-ARTICLE V: REPRESENTATIONS AND WARRANTIES
-Section 5.1: Borrower’s Representations
-The Borrower represents that:
-
-They are legally competent to enter into this Agreement
-
-The information provided is true and accurate
-
-The Collateral (if any) is free of encumbrances
-
-Section 5.2: Lender’s Representations
-The Lender represents that:
-
-They have the authority to lend under the Trust
-
-They will act in good faith and in accordance with fiduciary duties
-
-ARTICLE VI: GOVERNING LAW
-This Agreement shall be governed by and construed in accordance with the laws of the State of [Governing Law (State)], without regard to its conflict of law principles.
-
-ARTICLE VII: MISCELLANEOUS
-Section 7.1: Amendments
-Any amendment to this Agreement must be in writing and signed by both Parties.
-
-Section 7.2: Severability
-If any provision is found to be invalid, the remainder shall remain in full force and effect.
-
-Section 7.3: Entire Agreement
-This Agreement constitutes the entire understanding between the Parties and supersedes all prior agreements.
-
-ARTICLE VIII: SIGNATURES
+ARTICLE VII: SIGNATURES
 IN WITNESS WHEREOF, the Parties have executed this Agreement as of the date first written above.
 
-Borrower Signature: ___________________________ Name: [Borrower Name] Date: ___________________
+Borrower Signature: ___________________________ Name: [Insert Borrower Name]
 
-Trustee Signature: ___________________________ Name: [Trustee Name] Date: ___________________
+Trustee Signature: ___________________________ Name: [Insert Trustee Name]
 
-Witness/Notary (Optional): ___________________________ Name: [Witness/Notary Name] Date: ___________________
-
+Witness/Notary (Optional): ___________________________ Name: [Insert Witness Name]
 
 If the array are empty dont include the sections. Make each Article occupy one page as possible. Make it lengthy.
 Arrange the content into sections and paragraphs properly. 

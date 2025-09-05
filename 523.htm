@@ -5,20 +5,33 @@
   <label>Date of Agreement: <input type="date" name="date" required></label><br>
 
   <h2>Section 2: Loan Terms</h2>
-  <label>Loan Amount ($): <input type="number" name="loanAmount" required></label><br>
+  <label>Loan Amount ($): <input type="number" name="loanAmount" id="loanAmount" required></label><br>
 
   <label>Interest Rate:</label><br>
   <input type="radio" name="interestRateType" value="0" checked> 0% (Interest-Free)<br>
   <input type="radio" name="interestRateType" value="fixed"> Fixed % per year<br>
-  <input type="number" name="interestRate" placeholder="Enter rate if fixed" step="0.01"><br>
+  <input type="number" name="interestRate" id="interestRate" placeholder="Enter rate if fixed" step="0.01"><br>
 
   <label>Repayment Schedule:</label><br>
   <select name="repaymentSchedule">
-    <option value="lump">Lump sum on specific date</option>
     <option value="monthly">Monthly payments</option>
     <option value="quarterly">Quarterly payments</option>
+    <option value="lump">Lump sum on specific date</option>
   </select><br>
+
+  <label>Repayment Duration (months):</label><br>
+  <select name="repaymentDuration" id="repaymentDuration">
+    <option value="12">12 months</option>
+    <option value="24">24 months</option>
+    <option value="36">36 months</option>
+    <option value="48">48 months</option>
+    <option value="custom">Other</option>
+  </select>
+  <input type="number" name="customDuration" id="customDuration" placeholder="Enter custom duration (months)" style="display:none;"><br>
+
   <label>If Lump Sum, specify date: <input type="date" name="lumpSumDate"></label><br>
+
+  <label>Estimated Monthly Payment ($): <input type="text" name="monthlyPayment" id="monthlyPayment" readonly></label><br>
 
   <h2>Section 3: Collateral</h2>
   <label>Is the loan secured with collateral?</label><br>
@@ -42,3 +55,34 @@
 
   <br><button type="submit">Generate Loan Agreement</button>
 </form>
+
+<script>
+function calculateMonthlyPayment() {
+  const amount = parseFloat(document.getElementById('loanAmount').value) || 0;
+  const rateType = document.querySelector('input[name="interestRateType"]:checked').value;
+  const rate = rateType === "fixed" ? parseFloat(document.getElementById('interestRate').value) || 0 : 0;
+
+  const durationSelect = document.getElementById('repaymentDuration');
+  const durationValue = durationSelect.value;
+  const customDurationInput = document.getElementById('customDuration');
+  const duration = durationValue === "custom"
+    ? parseInt(customDurationInput.value) || 0
+    : parseInt(durationValue);
+
+  if (durationValue === "custom") {
+    customDurationInput.style.display = "inline";
+  } else {
+    customDurationInput.style.display = "none";
+  }
+
+  if (amount > 0 && duration > 0) {
+    const totalRepayment = amount * (1 + (rate / 100));
+    const monthlyPayment = (totalRepayment / duration).toFixed(2);
+    document.getElementById('monthlyPayment').value = monthlyPayment;
+  } else {
+    document.getElementById('monthlyPayment').value = "";
+  }
+}
+
+document.getElementById('loanContractForm').addEventListener('input', calculateMonthlyPayment);
+</script>
