@@ -22,177 +22,120 @@ Guidelines:
 2. Make the font bigger so it can occupy a page
 3. Replace all variables "$REPLACE" with values from the JSON data if available if not make a placeholder values.
 
+Revocable Living Trust Agreement
+This Revocable Living Trust Agreement (“Agreement”) is made and entered into on the 17th day of September, 2025, by and between the undersigned Grantor(s) and Trustee(s), pursuant to the laws of the State of Arizona.
 
-Revocable Living Trust Document
-Article I: Trust Name
+Article I. Name and Establishment of Trust
+Section 1.01 Trust Name: This Trust shall be known as the "asdf Revocable Living Trust" (“Trust”).
 
-The name of this Trust shall be designated as the "Revocable Living Trust." The Trust may be referred to in this document as the "Trust" or by its designated name. The Trust shall be effective upon the signing of this document by the Grantor(s) and the acceptance of the Trustee(s).
+Section 1.02 Effective Date: The Trust shall become effective upon execution by the Grantor(s) and acceptance by the Trustee(s).
 
-Article II: Grantor(s)
+Section 1.03 Revocability: The Trust is revocable and may be amended or terminated by the Grantor(s) at any time during their lifetime.
 
-The following individual(s), hereinafter referred to as the "Grantor(s)," have established this Trust:
+Article II. Grantor(s)
+Section 2.01 Identity of Grantor(s): The individuals establishing this Trust (“Grantor(s)”) shall be listed in Schedule C attached hereto.
 
-Grantor Information:
+Section 2.02 Transfer of Assets: The Grantor(s) hereby transfer, convey, and assign all assets listed in Schedule A to the Trustee(s) to be held in trust under the terms of this Agreement.
 
-Full Legal Name:
+Article III. Trustee(s)
+Section 3.01 Appointment of Trustee(s): The individuals designated in Schedule D shall serve as the initial Trustee(s).
 
-Address:
+Section 3.02 Powers and Duties: Trustee(s) shall have full authority to manage, invest, and distribute Trust assets in accordance with this Agreement and applicable law.
 
-City, State, Zip:
+Section 3.03 Successor Trustee(s): In the event that a Trustee is unable or unwilling to serve, the Successor Trustee(s) named in Schedule D shall assume all responsibilities.
 
-Email:
+Article IV. Beneficiaries
+Section 4.01 Designation of Beneficiaries: The individuals or entities listed in Schedule E shall be the beneficiaries of this Trust.
 
-Phone:
+Section 4.02 Rights of Beneficiaries: Beneficiaries shall receive distributions from the Trust Estate in accordance with the mode specified in Article V.
 
-The Grantor(s) hereby transfer, convey, and deliver to the Trustee(s) all property described in Schedule A, to be held in trust under the terms and conditions set forth herein.
+Article V. Distribution of Trust Estate
+Section 5.01 Distribution Mode: The Grantor(s) have elected Staggered Distribution (Mode 2) as outlined in Schedule B.
 
-Article III: Beneficiaries
+Section 5.02 Staggered Terms: Beneficiaries shall receive their share of the Trust Estate in stages, based on age or milestones. Until such time, the Trustee may use Trust assets for the beneficiary’s health, education, maintenance, and support.
 
-The beneficiaries of this Trust shall be as follows:
+Section 5.03 Termination: The Trust shall terminate once all distributions have been made and no assets remain.
 
-Primary Beneficiaries: Each Primary Beneficiary shall receive the percentage share indicated below of the Trust Estate, subject to the terms of this Trust and the chosen distribution mode.
-
-Article III-A: Distribution Mode
-
-The Grantor(s) direct that the distribution of the Trust Estate to the beneficiaries shall follow the mode specified in Schedule B – Distribution Instructions.
-
-Outright Distribution
-
-Each beneficiary shall receive their full share of the Trust Estate immediately upon settlement of the Trust.
-
-Once all distributions are made, the Trust shall terminate.
-
-Continuing Trust
-
-The Trustee shall retain the beneficiary’s share in trust for their benefit.
-
-The Trustee shall manage and invest trust assets, distributing income and/or principal as necessary for the beneficiary’s health, education, maintenance, and support (HEMS standard).
-
-The Trustee may withhold or limit distributions to protect trust property from creditors, divorce, or mismanagement.
-
-Staggered Distribution
-
-The beneficiary’s share shall be distributed in stages at ages or milestones designated in Schedule B.
-
-Until a scheduled distribution occurs, the Trustee may use income and/or principal for the beneficiary’s health, education, maintenance, and support.
-
-Any undistributed amounts remain in trust until the next scheduled distribution.
-
-Article IV: Successor Trustee(s)
-
-The Trustee(s) of this Trust are designated as follows:
-
-Primary Trustee:
-
-Name:
-
-Address:
-
-Relationship:
-
-Successor Trustee(s):
-If the Primary Trustee is unable or unwilling to serve, the following Successor Trustee(s) shall act, in the order named:
-
-Name:
-
-Address:
-
-Relationship:
-
-Each Successor Trustee shall have the same powers, duties, and responsibilities as the original Trustee.
-
-Article V: Schedule A – Assets Transferred to the Trust
-
-The following assets are hereby transferred to and held by the Trustee(s) of the "Revocable Living Trust":
-
-Real Estate:
-
-Description:
-
-Address:
-
-Financial Accounts:
-
-Institution:
-
-Account Number (last 4 digits):
-
-Digital Assets:
-
-Token/Coin:
-
-Public Wallet Address:
-
-Notes/Description:
+Article VI. Trust Assets
+Section 6.01 Schedule A: Assets transferred to the Trust include:
 
 Other Property:
 
-Description:
+Description: vvvvvvvvv
 
-Estimated Value: $
+Account Number: 555555555
 
-This Schedule A may be amended or supplemented by the Grantor(s) at any time by delivering written notice to the Trustee(s).
+Estimated Value: $555,555
 
-Article VI: Schedule B – Distribution Instructions
+Additional Assets:
 
-The Grantor(s) hereby elect the following distribution mode for the Trust Estate:
+Description: asdfasdf
 
-☐ Outright Distribution
+Identifier: wqerwer
 
-Each beneficiary receives their full share immediately after settlement.
+Estimated Value: $5,555,123,333
 
-☐ Continuing Trust
+Section 6.02 Amendments: Grantor(s) may amend Schedule A at any time by written notice to the Trustee(s).
 
-Each beneficiary’s share remains in trust for life (or until otherwise directed).
+Article VII. Administration of Trust
+Section 7.01 Trustee Powers: Trustee(s) shall have the power to:
 
-Distributions limited to health, education, maintenance, and support unless Trustee exercises discretion.
+Buy, sell, and lease property
 
-☐ Staggered Distribution
+Open and manage bank accounts
 
-Each beneficiary’s share distributed as follows:
+Invest in stocks, bonds, and mutual funds
 
-____ % (or fraction) at age ____
+Hire professionals (e.g., attorneys, accountants)
 
-____ % (or fraction) at age ____
+Make distributions per Article V
 
-Remainder at age ____
+Section 7.02 Accounting: Trustee(s) shall maintain accurate records and provide annual statements to beneficiaries upon request.
 
-(If staggered, the Trustee may use trust funds for health, education, maintenance, and support until each scheduled distribution.)
+Article VIII. Incapacity and Death of Grantor(s)
+Section 8.01 Incapacity: If a Grantor becomes incapacitated, the Trustee shall continue to manage the Trust for the benefit of the Grantor and beneficiaries.
 
-Grantor(s) may amend or update this Schedule B by written instrument delivered to the Trustee(s).
+Section 8.02 Death: Upon the death of the last surviving Grantor, the Trust shall become irrevocable and distributions shall proceed per Article V.
 
-Article VII: Execution and Acknowledgment
+Article IX. Governing Law
+Section 9.01 Jurisdiction: This Agreement shall be governed by and construed in accordance with the laws of the State of Arizona.
 
-IN WITNESS WHEREOF, the undersigned Grantor(s) and Trustee(s) have executed this Revocable Living Trust on this ___ day of _______, 20.
+Section 9.02 Venue: Any disputes shall be resolved in the courts of Arizona.
 
-Grantor Signature
-Name:
+Article X. Amendment and Revocation
+Section 10.01 Amendment: Grantor(s) may amend this Trust by written instrument signed and delivered to the Trustee(s).
 
-Grantor Signature
-Name:
+Section 10.02 Revocation: This Trust may be revoked in whole or in part by the Grantor(s) at any time during their lifetime.
 
-Trustee Signature
-Name:
+Article XI. Execution and Acknowledgment
+IN WITNESS WHEREOF, the undersigned Grantor(s) and Trustee(s) have executed this Revocable Living Trust Agreement on the date first written above.
 
-Successor Trustee Signature
-Name:
+Grantor(s):
+
+Name: [To be filled]
+
+Trustee(s):
+
+Name: [To be filled]
+
+Successor Trustee(s):
+
+Name: [To be filled]
 
 Witnesses:
 
-Witness Signature
+Signature
 
-Witness Signature
+Signature
 
-STATE OF Alabama
-COUNTY OF [County Name]
+Article XII. Notary Acknowledgment
+State of Arizona County of ____________
 
-On this ___ day of _______, 20, before me, the undersigned Notary Public, personally appeared [Grantor Name(s)], known to me or satisfactorily proven to be the person(s) whose names are subscribed to this instrument, and acknowledged that they executed the same for the purposes therein contained.
+On this 17th day of September, 2025, before me, the undersigned Notary Public, personally appeared the above-named Grantor(s) and Trustee(s), known to me or satisfactorily proven to be the persons whose names are subscribed to this instrument, and acknowledged that they executed the same for the purposes therein contained.
 
 IN WITNESS WHEREOF, I hereunto set my hand and official seal.
 
-Notary Public
-My Commission Expires: __________
-
+Notary Public Signature: ____________________ My Commission Expires: __________
 
      If the array are empty dont include the sections. Make each Article occupy one page as possible. Make it lengthy
     Arrange the content into sections and paragraphs properly. Output exact agreement text only then Generate a html
