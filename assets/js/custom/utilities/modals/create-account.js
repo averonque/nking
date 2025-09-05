@@ -123,6 +123,7 @@ var KTCreateAccount = function () {
 	}
 
 	var handleForm = function() {
+		/*
 		formSubmitButton.addEventListener('click', function (e) {
 			// Validate form before change stepper step
 			var validator = validations[3]; // get validator for last form
@@ -183,6 +184,7 @@ var KTCreateAccount = function () {
             // Revalidate the field when an option is chosen
             validations[2].revalidateField('business_type');
         });
+		*/
 	}
 
 	var initValidation = function () {
