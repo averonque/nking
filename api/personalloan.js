@@ -22,7 +22,6 @@ ${JSON.stringify(req.body, null, 2)}
 2. Here is the loan data in JSON format. Extract the loan amount, interest rate (as a percent), and repayment duration (in months), monthly payment
 
 
-
 If the array are empty dont include the sections. Make each Article occupy one page as possible. Make it lengthy.
 Arrange the content into sections and paragraphs properly. 
 Output exact agreement text only then Generate a html.
