@@ -6068,7 +6068,6 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
 
 
 				const monthly_payment = ((parseInt(loan_amount) * ((repayment_duration_num / 12) * interest_rate_decimal)) + parseInt(loan_amount)) / repayment_duration_num;
-	alert(interest_rate_decimal+","+monthly_payment);
 
 
 				const loan_terms = {loan_amount: loan_amount, interest_rate:interest_rate, enter_rate_if_fixed:enter_rate_if_fixed,repayment_schedule:repayment_schedule,lump_sum_specify_date:lump_sum_specify_date,repayment_duration: repayment_duration, monthly_payment:monthly_payment};
