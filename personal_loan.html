@@ -6060,7 +6060,16 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
 				const repayment_schedule= $("#repayment_schedule").val();
 				const lump_sum_specify_date = $("#lump_sum_specify_date").val();
 				const repayment_duration = $("#repayment_duration").val();
-				const loan_terms = {loan_amount: loan_amount, interest_rate:interest_rate, enter_rate_if_fixed:enter_rate_if_fixed,repayment_schedule:repayment_schedule,lump_sum_specify_date:lump_sum_specify_date,repayment_duration: repayment_duration};
+
+
+				
+
+				const interest_rate_decimal  = parseFloat(interest_rate) / 100;
+
+				const monthly_payment = ((loan_amount * ((repayment_duration / 12) * interest_rate_decimal)) + loan_amount) / repayment_duration;
+
+
+				const loan_terms = {loan_amount: loan_amount, interest_rate:interest_rate, enter_rate_if_fixed:enter_rate_if_fixed,repayment_schedule:repayment_schedule,lump_sum_specify_date:lump_sum_specify_date,repayment_duration: repayment_duration, monthly_payment:monthly_payment};
 
 
 				var purpose_options = $('input[type="checkbox"][name="purpose_options"]:checked');
@@ -6080,7 +6089,7 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
 				const governing_state = $("#state").val();
 			
 			const json_Data= {loan_basic, loan_terms, governing_state: governing_state, collateral_info, default_and_remedies };
-			
+
 			console.log(json_Data);
 			htmlString = await generateTrustDocument(json_Data);
 	
