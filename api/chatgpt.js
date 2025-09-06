@@ -20,7 +20,9 @@ ${JSON.stringify(req.body, null, 2)}
 1.You are a layout-aware HTML generator for PDF rendering using jsPDF. Your goal is to generate enough HTML content to fill exactly one PDF page without overflowing or cutting off. Assume the page size is A4 with margins: top 40px, bottom 60px, left/right 20px. Use a <div class='page'> wrapper. Use clean semantic HTML with inline styles for font size and spacing. Avoid large images or elements that may overflow. Ensure the final content fits within the printable area and ends cleanly before the bottom margin.
 2. Generate HTML content inside <div class='page'> that fills one page of a PDF using jsPDF without cutting off at the bottom. Use headings, paragraphs, and spacing to simulate a legal agreement or formal document.
 3. Include needed blank lines where to sign
-4. Use this template for
+4. Generate articles I, II, V and the rest of the articles that are required
+
+5. Use this template for
 article III
 
 Article III-A: Distribution Mode
@@ -47,16 +49,12 @@ The Grantor (s) hereby elect the following distribution mode for the Trust Estat
 & Staggered Distribution
 Each beneficiary’s share distributed as follows :
 
-1% (or fraction ) at grantor’s death and at age 20, 1% every year for 9 remaining years.  Use to grow your own wealth with assets. Do not waste on liabilities. Invest. Use for Vital (growth)80%. A lesser amount for Good (Fun) 15%.  And even less for busy (non-essentials) 5%.
+{PUT DATA HERE}
 
-1% (or fraction ) at Grantor’s Death 
-Remainder at age 20 for 9 consecutive years at 1%.
-(If staggered , the Trustee may use trust funds for health, education, maintenance, investments and (If staggered , the Trustee may use trust funds for health, education, maintenance, investments and support until each scheduled distribution.) of own distribution at owns discretion. 
 
 Grantor (s) may amend or update this Schedule B by written instrument delivered to the
 Trustee (s).
 
-5. Generate articles I, II, V and the rest of the articles that are required
 
 
 
