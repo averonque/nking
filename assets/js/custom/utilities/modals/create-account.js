@@ -16,10 +16,10 @@ var KTCreateAccount = function () {
 	var stepperObj;
 	var validations = [];
 	var provided = false;
-	var stepDic = {1:{next:2},2:{next:3},3:{yes:8,next:4,kw:"isMarried"},4:{prev:3,next:5},5:{next:6,prev:4},6:{next:7,prev:5},7:{prev:6,next:8},8:{prev:7,next:8}};
+	var stepDic = {1:{next:2},2:{next:3},3:{yes:8,next:4},4:{prev:3,next:5},5:{next:6,prev:4},6:{next:7,prev:5},7:{prev:6,next:8},8:{prev:7,next:9}};
 
-	  let totalSteps = 9;   // total number of steps
-  let currentStep = 0;  // start at step 0
+	  let totalSteps = 8;   // total number of steps
+  	let currentStep = 0;  // start at step 0
 
   function updateProgress() {
     let progress = (currentStep / totalSteps) * 100;
