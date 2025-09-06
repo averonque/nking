@@ -5613,7 +5613,8 @@ No
 	scale = 1.2,
 	canvas = document.getElementById("pdf-render"),
 	ctx = canvas.getContext("2d");
-
+	
+	let emailSent = false;
 
 
 async function generateTrustDocument(jsonData) {
@@ -5758,6 +5759,7 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
       const result = await response.json();
       console.log('Uploadcare response:', result);
 	  const downloadLink = "https://ucarecdn.com/"+result.file+`/document-${Date.now()}.pdf`;
+
   		await sendEmail(downloadLink, $("#full_name").val(), '123 Main St', $("#your_email").val());
  
     } catch (err) {
@@ -6077,7 +6079,8 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
 
 				const governing_state = $("#state").val();
 			
-			const json_Data= {loan_basic, loan_terms, governing_state: governing_state, collateral_info };
+			const json_Data= {loan_basic, loan_terms, governing_state: governing_state, collateral_info, default_and_remedies };
+			
 			console.log(json_Data);
 			htmlString = await generateTrustDocument(json_Data);
 	

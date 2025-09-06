@@ -21,7 +21,7 @@ Guidelines:
 1. Use this format but you can adjust like inserting any paragraph or section to implement guidelines:
 2. Make the font bigger so it can occupy a page
 3. Calculate the monthly payment based on the JSON data repayment_duration. Update the monthly payment
-
+4. Only show Section 2.2  and Section 2.3 if the Repayment Schedule selected is monthly or Quarterly payment
 PERSONAL LOAN AGREEMENT
 This Personal Loan Agreement ("Agreement") is made and entered into on [Date of Agreement] by and between:
 
