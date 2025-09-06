@@ -17,11 +17,26 @@ Using the following JSON data, generate a professional Personal Loan Agreement d
 JSON:
 ${JSON.stringify(req.body, null, 2)}
 
-Guidelines: 
+--Start of Guidelines--
 1. Use this format but you can adjust like inserting any paragraph or section to implement guidelines:
 2. Make the font bigger so it can occupy a page
-3. Calculate the monthly payment based on the JSON data repayment_duration. Update the monthly payment
-4. Modify the article 2 like hide or show sections depending  on the selected repayment_schedule property from the json data
+3. Calculate the monthly payment based on the JSON data repayment_duration, fixed interest rate. Update the monthly payment
+
+Declare this variable article_2  = 
+ARTICLE II: REPAYMENT TERMS
+Section 2.1 – Repayment Schedule
+The Borrower agrees to repay the Loan according to the following schedule: ☐ Monthly payments ☐ Quarterly payments ☐ Lump sum payment due on [Insert Lump Sum Date]
+
+
+Section 2.2 – Repayment Duration
+The Loan shall be repaid over a period of: ☐ 12 months ☐ 24 months ☐ 36 months ☐ 48 months ☐ Other: [Insert Duration]
+
+Section 2.3 – Monthly Payment Calculation
+If repaid monthly, the Borrower shall pay $[Monthly Payment] per month.
+
+Modify this variable article_2 depending on the json data 
+
+--End of Guidelines--
 
 
 PERSONAL LOAN AGREEMENT
@@ -40,17 +55,7 @@ The Loan shall bear interest as follows: ☐ 0% (Interest-Free) ☐ Fixed intere
 
 Interest shall be calculated on the basis of a 12-month calendar year unless otherwise specified.
 
-ARTICLE II: REPAYMENT TERMS
-Section 2.1 – Repayment Schedule
-The Borrower agrees to repay the Loan according to the following schedule: ☐ Monthly payments ☐ Quarterly payments ☐ Lump sum payment due on [Insert Lump Sum Date]
-
-
-Section 2.2 – Repayment Duration
-The Loan shall be repaid over a period of: ☐ 12 months ☐ 24 months ☐ 36 months ☐ 48 months ☐ Other: [Insert Duration]
-
-Section 2.3 – Monthly Payment Calculation
-If repaid monthly, the Borrower shall pay $[Monthly Payment] per month.
-
+{article_2}
 
 ARTICLE III: COLLATERAL
 Section 3.1 – Security
