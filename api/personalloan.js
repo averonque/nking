@@ -21,7 +21,9 @@ Guidelines:
 1. Use this format but you can adjust like inserting any paragraph or section to implement guidelines:
 2. Make the font bigger so it can occupy a page
 3. Calculate the monthly payment based on the JSON data repayment_duration. Update the monthly payment
-4. Only show Section 2.2  and Section 2.3 if the Repayment_Schedule from the json is monthly or Quarterly payment
+4. Modify the article 2 like hide or show sections depending  on the selected repayment_schedule property from the json data
+
+
 PERSONAL LOAN AGREEMENT
 This Personal Loan Agreement ("Agreement") is made and entered into on [Date of Agreement] by and between:
 
@@ -43,12 +45,13 @@ Section 2.1 – Repayment Schedule
 The Borrower agrees to repay the Loan according to the following schedule: ☐ Monthly payments ☐ Quarterly payments ☐ Lump sum payment due on [Insert Lump Sum Date]
 
 
-
 Section 2.2 – Repayment Duration
 The Loan shall be repaid over a period of: ☐ 12 months ☐ 24 months ☐ 36 months ☐ 48 months ☐ Other: [Insert Duration]
 
 Section 2.3 – Monthly Payment Calculation
 If repaid monthly, the Borrower shall pay $[Monthly Payment] per month.
+
+
 ARTICLE III: COLLATERAL
 Section 3.1 – Security
 ☐ The Loan is secured by collateral ☐ The Loan is unsecured
