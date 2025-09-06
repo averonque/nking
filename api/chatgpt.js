@@ -19,15 +19,13 @@ ${JSON.stringify(req.body, null, 2)}
 --Start of Guidelines--
 1.You are a layout-aware HTML generator for PDF rendering using jsPDF. Your goal is to generate enough HTML content to fill exactly one PDF page without overflowing or cutting off. Assume the page size is A4 with margins: top 40px, bottom 60px, left/right 20px. Use a <div class='page'> wrapper. Use clean semantic HTML with inline styles for font size and spacing. Avoid large images or elements that may overflow. Ensure the final content fits within the printable area and ends cleanly before the bottom margin.
 2. Generate HTML content inside <div class='page'> that fills one page of a PDF using jsPDF without cutting off at the bottom. Use headings, paragraphs, and spacing to simulate a legal agreement or formal document.
+3. Include needed blank lines where to sign
 --End of Guidelines--  
 
 If the array are empty dont include the sections. Make each Article occupy one page as possible. Make it lengthy.
 Arrange the content into sections and paragraphs properly. 
 Output exact agreement text only then Generate a html.
  
-
-JSON:
-${JSON.stringify(req.body, null, 2)}
   `;
 
   try {
