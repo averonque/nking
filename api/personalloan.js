@@ -22,6 +22,8 @@ ${JSON.stringify(req.body, null, 2)}
 2. Make the font bigger so it can occupy a page
 3. Calculate the monthly payment based on the JSON data repayment_duration, fixed interest rate. Update the monthly payment
 
+Declare this variable monthly_payment = ((loan_amount * ((repayment_duration/12)*interest_rate)) + loan_amount )/repayment_duration 
+
 Declare this variable article_2  = 
 ARTICLE II: REPAYMENT TERMS
 Section 2.1 – Repayment Schedule
@@ -31,8 +33,10 @@ The Borrower agrees to repay the Loan according to the following schedule: ☐ M
 Section 2.2 – Repayment Duration
 The Loan shall be repaid over a period of: ☐ 12 months ☐ 24 months ☐ 36 months ☐ 48 months ☐ Other: [Insert Duration]
 
+--Guideline Only show this if repayment_duration is monthly or quarterly--
 Section 2.3 – Monthly Payment Calculation
-If repaid monthly, the Borrower shall pay $[Monthly Payment] per month.
+If repaid monthly, the Borrower shall pay {{monthly_payment}} per month.
+--End of Guideline--
 
 Modify this variable article_2 depending on the json data 
 
