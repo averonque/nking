@@ -56,7 +56,7 @@ Remainder at age 20 for 9 consecutive years at 1%.
 Grantor (s) may amend or update this Schedule B by written instrument delivered to the
 Trustee (s).
 
-5. Generate the rest of the articles not present above.
+5. Generate articles I, II, V and the rest of the articles that are required
 
 
 
