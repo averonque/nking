@@ -67,7 +67,7 @@ Witness Signature:____________________________
 
 STATE OF Florida
 COUNTY OF Seminole 
-On this 4th day of September, 2025, before me, the undersigned Notary Public, personally appeared Jeramy K. Freeman, known to me or satisfactorily proven to be the person whose name is subscribed to this instrument , and acknowledged that they executed the same for the purposes therein contained .
+On this {{REPLACE}}, before me, the undersigned Notary Public, personally appeared {{REPLACE}}, known to me or satisfactorily proven to be the person whose name is subscribed to this instrument , and acknowledged that they executed the same for the purposes therein contained .
 
 IN WITNESS WHEREOF , I hereunto set my hand and official seal.
 
