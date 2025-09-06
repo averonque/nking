@@ -20,7 +20,7 @@ ${JSON.stringify(req.body, null, 2)}
 --Start of Guidelines--
 1. Make the font bigger so it can occupy a page
 2. Here is the loan data in JSON format. Extract the loan amount, interest rate (as a percent), and repayment duration (in months). Then calculate the monthly payment using simple interest.
-3. To calculate the monthly loan payments using simple interest. Use the formula: monthly_payment = ((loan_amount * ((repayment_duration_months / 12) * interest_rate_decimal)) + loan_amount) / repayment_duration_months. Return the result as a number with two decimal places.
+3. To calculate the monthly loan payments using simple interest. Use the formula: monthly_payment = ((loan_amount * ((repayment_duration_months / 12) * interest_rate_decimal)) + loan_amount) / repayment_duration_months. monthly_payment = monthly_payment /  repayment_duration_months Return the result as a number with two decimal places. Dont write the formula in the document just remember the final output
 
 
 If the array are empty dont include the sections. Make each Article occupy one page as possible. Make it lengthy.
