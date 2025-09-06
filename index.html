@@ -5995,21 +5995,27 @@ async function generatePdfFromString(htmlString) {
   const { jsPDF } = window.jspdf;
   const pdf = new jsPDF({ unit: "pt", format: "letter" });
 
-  // Parse HTML string into elements
-  const container = document.createElement("div");
-  container.innerHTML = htmlString.replace("``` htm","");
-  const pages = container.querySelectorAll(".page");
 
-//  for (let i = 0; i < pages.length; i++) {
-    // Render current page
-    await pdf.html(htmlString.replace("``` htm",""), {
-      x: 0,
-      y: 0,
-      width: pdf.internal.pageSize.getWidth() - 80,
-      windowWidth: 800,
-      autoPaging: true,
-	  margin: [40, 20, 60, 20] // [top, right, bottom, left]
-    });
+  const container = document.createElement("div");
+  container.innerHTML = `<style>
+  .page {
+    padding: 40px 20px 80px 20px; /* top, right, bottom, left */
+    box-sizing: border-box;
+    page-break-inside: avoid;
+    font-family: Arial, sans-serif;
+  }
+  h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+</style>`+htmlString.replace("``` htm","");
+
+
+
 
     // Add a blank page after each render, except the last one
    // if (i < pages.length - 1) {
