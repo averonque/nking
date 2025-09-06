@@ -5683,24 +5683,28 @@ async function generatePdfFromString(htmlString) {
 	*/
 
 	
-  // Parse HTML string into elements
-  const container = document.createElement("div");
-  container.innerHTML = htmlString.replace("``` htm","");
-  const pages = container.querySelectorAll(".page");
+const container = document.createElement("div");
+container.innerHTML = htmlString.replace("``` htm", "");
 
-//  for (let i = 0; i < pages.length; i++) {
-    // Render current page
-    await pdf.html(htmlString.replace("``` htm",""), {
-      x: 0,
-      y: 0,
-      width: pdf.internal.pageSize.getWidth() - 80,
-      windowWidth: 800,
-      autoPaging: true,
-	  margin: [40, 20, 60, 20] // [top, right, bottom, left]
-    });
+// Optional: apply styles to ensure clean page breaks
+container.style.paddingBottom = "80px"; // give extra space at bottom
+container.style.boxSizing = "border-box";
 
-
- 
+await pdf.html(container, {
+  x: 0,
+  y: 0,
+  width: pdf.internal.pageSize.getWidth() - 80,
+  windowWidth: 800,
+  autoPaging: true,
+  margin: [40, 20, 60, 20], // [top, right, bottom, left]
+  html2canvas: {
+    scale: 1,
+    useCORS: true,
+    scrollY: 0 // prevent scroll offset issues
+  },
+  callback: function (doc) {
+    // Optional: save or do something with the doc
+//    doc.save("output.pdf");
 	   const pdfArrayBuffer = pdf.output("arraybuffer");
 
 
@@ -5768,6 +5772,12 @@ $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
 
 
 })();
+
+
+
+  }
+});
+
 
 
 
