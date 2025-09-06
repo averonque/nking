@@ -20,9 +20,11 @@ ${JSON.stringify(req.body, null, 2)}
 --Start of Guidelines--
 1. Use this format but you can adjust like inserting any paragraph or section to implement guidelines:
 2. Make the font bigger so it can occupy a page
-3. Calculate the monthly payment based on the JSON data repayment_duration, fixed interest rate. Update the monthly payment
+3. Here is the loan data in JSON format. Extract the loan amount, interest rate (as a percent), and repayment duration (in months). Then calculate the monthly payment using simple interest.
 
-Declare this variable monthly_payment = ((loan_amount * ((repayment_duration/12)*interest_rate)) + loan_amount )/repayment_duration 
+Declare this variable monthly_payment =  calculates monthly loan payments using simple interest. Use the formula: monthly_payment = ((loan_amount * ((repayment_duration_months / 12) * interest_rate_decimal)) + loan_amount) / repayment_duration_months. Return the result as a number with two decimal places.
+
+
 
 Declare this variable article_2  = 
 ARTICLE II: REPAYMENT TERMS
