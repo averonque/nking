@@ -44,7 +44,7 @@ Address:
 Relationship: 
 
 article V
-Article V: Schedule A – Assets Transferred to the Trust
+Article V: Assets Transferred to the Trust {{You can rename this}}
 
 
 article VI
